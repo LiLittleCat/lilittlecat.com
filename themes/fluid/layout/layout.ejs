@@ -24,6 +24,15 @@ var banner_mask_alpha = page.banner_mask_alpha || theme.index.banner_mask_alpha
                 <%- subtitle %>
               <% } %>
             </span>
+			
+			<% if(!is_post()) { %>
+			<br>
+			<span class="h2" id="hitokoto">
+				<% if(theme.fun_features.typing.enable == false) { %>
+				<%- hitokoto %>
+				<% } %>
+			</span>
+			<% } %>
 
             <% if(is_post()) { %>
               <%- partial('_partial/post-meta') %>
