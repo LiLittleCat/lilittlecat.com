@@ -19,11 +19,11 @@
     }
     <% if(is_post()) { %>
         typing("subtitle", "<%- data.subtitle %>")
-    <% } else if(theme.index.hitokoto.enable){ %>
+    <% } else if(theme.index.hitokoto.enable && !page.layout) { %>
         fetch('https://v1.hitokoto.cn')
         .then(response => response.json())
         .then(data => {
-           typing("hitokoto", data.hitokoto)
+           typing("hitokoto", '『' + data.hitokoto + '』')
         })
         .catch(console.error)
     <% } else { %>
