@@ -3,8 +3,8 @@ title: RPM介绍及打包总结
 excerpt: 简单介绍一下RPM，并总结制作RPM包的流程。
 date: 2020-08-06 16:18:03
 tags: [RPM]
-index_img: http://rpm.org/images/RPM_Logo.svg
-banner_img: http://rpm.org/images/RPM_Logo.svg
+index_img: https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed/images/blog/RPM_Logo.svg
+banner_img: https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed/images/blog/RPM_Logo.svg
 ---
 
 ## 软件包管理系统和Linux发行版
