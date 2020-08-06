@@ -31,7 +31,7 @@
         .catch(console.error)
     <% } else if(theme.index.slogan.jinrishici && !page.layout) { %>
         jinrishici.load(function(result) { 
-            typing("jinrishici", '『' + result.data.content + '』' + '<br /> <h5 align="right">' + '—— ' + result.data.origin.author + '《' + result.data.origin.title + '》' + '</h5>')
+            typing("jinrishici", '『' + result.data.content + '』' + '<br /> <h4 align="right">' + '—— ' + result.data.origin.author + '《' + result.data.origin.title + '》' + '</h4>')
         });
     <% } else { %>
         typing("subtitle", "<%- data.subtitle %>")
