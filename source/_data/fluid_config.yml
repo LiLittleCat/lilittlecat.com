@@ -70,7 +70,7 @@ color:  # 主题颜色配置，不一定能每一处都生效，可能会被局�
   board_color_dark: "#252d38"
 
 font:  # 主题字体配置
-  font_size: 16px                   # 全局字号
+  font_size: 18px                   # 全局字号
   font_family:                      # 全局字体
   code_font_size: 85%               # 代码的字号
 
