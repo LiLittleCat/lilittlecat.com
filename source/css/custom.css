@@ -3,10 +3,11 @@
     src: url("https://cdn.jsdelivr.net/gh/pxxyyz/blog-file/fonts/FiraCode.woff2") format('woff2'), url("https://cdn.jsdelivr.net/gh/pxxyyz/blog-file/fonts/FiraCode.woff") format('woff');
 }
 
-@font-face {
+
+/* @font-face {
     font-family: 'Edo-SZ';
     src: url("https://cdn.jsdelivr.net/gh/pxxyyz/blog-file/fonts/Edo-SZ.woff2") format('woff2'), url("https://cdn.jsdelivr.net/gh/pxxyyz/blog-file/fonts/Edo-SZ.woff") format('woff');
-}
+} */
 
 a.anchor {
     display: block;
