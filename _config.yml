@@ -104,5 +104,7 @@ theme: fluid
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: https://github.com/LiLittleCat/lilittlecat.github.io
+  repository: 
+    github: https://github.com/LiLittleCat/lilittlecat.github.io
+    coding: git@e.coding.net:lilittlecat/lilittlecat/lilittlecat.git
   branch: master
