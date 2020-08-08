@@ -9,9 +9,7 @@ abbrlink: 22fd6dd2
 date: 2020-08-06 16:18:03
 ---
 
-RPM Package Manager (RPM) 是一个强大的命令行驱动的软件包管理工具，
-用来安装、卸载、校验、查询和更新 Linux 系统上的软件包。
-本文简单介绍了一下RPM，并总结制作了RPM包的流程。
+RPM Package Manager (RPM) 是一个强大的命令行驱动的软件包管理工具，用来安装、卸载、校验、查询和更新 Linux 系统上的软件包。本文简单介绍了一下RPM，并总结制作了RPM包的流程。
 
 <!-- more -->
 
