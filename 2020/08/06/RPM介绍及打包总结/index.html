@@ -1,0 +1,887 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed/images/blog/blog-favicon.png">
+  <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed/images/blog/blog-favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="LiLittleCat">
+  <meta name="keywords" content="">
+  <title>RPM介绍及打包总结 - 狸小猫的小窝</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/pxxyyz/blog-file/css/horizontalmenu.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1806861_o87e98icohb.css">
+
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>LiLittleCat's Nest</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed/images/blog/RPM_Logo.svg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.1)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            <!-- 打字机输出一言或今日诗词 -->
+            
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-08-06 16:18" pubdate>
+      2020年8月6日 下午
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.8k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      35
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">RPM介绍及打包总结</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <h2 id="软件包管理系统和Linux发行版"><a href="#软件包管理系统和Linux发行版" class="headerlink" title="软件包管理系统和Linux发行版"></a>软件包管理系统和Linux发行版</h2><p>软件包管理系统：自动安装、配置、卸载和升级软件包的工具组合。</p>
+<p>Linux 发行版中常见的有：</p>
+<ul>
+<li>RPM(Redhat Package Manager)</li>
+<li>DPKG(Debian Package)</li>
+</ul>
+<p>使用他们的系统被分为两大派系:</p>
+<ul>
+<li>RedHat 系（CentOS、Fedora 等）</li>
+<li>Debian 系（Ubuntu、Deepin 等）</li>
+</ul>
+<h2 id="RPM"><a href="#RPM" class="headerlink" title="RPM"></a>RPM</h2><p>一个 RPM 包包含了已经压缩的软件文件集和相关的软件内容信息，通常表现为以 <code>.rpm</code> 扩展名结尾的文件，如果是源代码包通常以 <code>src.rpm</code> 结尾。</p>
+<h3 id="rpm-包命名"><a href="#rpm-包命名" class="headerlink" title="rpm 包命名"></a>rpm 包命名</h3><p>一般格式：<code>name-version-release.arch.rpm</code></p>
+<ul>
+<li><code>name</code>：安装包的名称</li>
+<li><code>version</code>：版本信息</li>
+<li><code>release</code>：发行号、适应系统等</li>
+<li><code>arch</code>：适用的硬件平台。包括 <code>x86_64</code>、<code>i686</code> 等，<code>noarch</code> 表示能安装在任何平台</li>
+</ul>
+<p>举例：</p>
+<div class="hljs"><pre><code class="hljs shell">nginx-1.16.1-1.el7.x86_64.rpm</code></pre></div>
+
+<h3 id="rpm-命令"><a href="#rpm-命令" class="headerlink" title="rpm 命令"></a>rpm 命令</h3><p>安装管理RPM包需要用到 <code>rpm</code> 命令，常用参数如下：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-q</code></td>
+<td>查询 rpm 包的信息</td>
+</tr>
+<tr>
+<td><code>-i</code></td>
+<td>安装 rpm 包</td>
+</tr>
+<tr>
+<td><code>-U</code></td>
+<td>升级 rpm 包</td>
+</tr>
+<tr>
+<td><code>-e</code></td>
+<td>卸载 rpm 包</td>
+</tr>
+<tr>
+<td><code>-h</code></td>
+<td>以 <code>#</code> 显示安装进度</td>
+</tr>
+<tr>
+<td><code>-v</code></td>
+<td>显示安装详情</td>
+</tr>
+<tr>
+<td><code>-l</code></td>
+<td>列出安装包中文件</td>
+</tr>
+<tr>
+<td><code>-p</code></td>
+<td>对 rpm 包进行查询、与其他参数一起使用</td>
+</tr>
+</tbody></table>
+<p>以上参数需要组合使用，举例：</p>
+<p>查看安装包信息</p>
+<div class="hljs"><pre><code class="hljs shell">rpm -qip nginx-1.16.1-1.el7.x86_64.rpm</code></pre></div>
+
+<p>列出安装包中的文件</p>
+<div class="hljs"><pre><code class="hljs shell">rpm -qlp nginx-1.16.1-1.el7.x86_64.rpm</code></pre></div>
+
+<p>安装安装包</p>
+<div class="hljs"><pre><code class="hljs shell">rpm -ivh nginx-1.16.1-1.el7.x86_64.rpm</code></pre></div>
+
+<p>查询已安装所有安装包</p>
+<div class="hljs"><pre><code class="hljs shell">rpm -qa</code></pre></div>
+
+<p>卸载安装包</p>
+<div class="hljs"><pre><code class="hljs shell">rpm -evh nginx-1.16.1-1.el7.x86_64 
+<span class="hljs-meta">#</span><span class="bash"> 后面跟 rpm 包的全名</span></code></pre></div>
+
+<p>补充</p>
+<ul>
+<li>使用 <code>--nodeps</code> 跳过依赖验证，强制操作</li>
+<li>rpm默认不允许重复安装和降级安装，可使用 <code>--force</code> 强制安装</li>
+<li>可使用 <code>-qf</code> 查看某个文件属于哪个rpm包</li>
+</ul>
+<h2 id="YUM"><a href="#YUM" class="headerlink" title="YUM"></a>YUM</h2><p>当一个 rpm 包的安装需要依赖其他包时，就必须先安装依赖包。YUM（Yellowdog Updater, Modified）工具基于 RPM ，可以从指定源空间（服务器、本地目录等）自动下载 rpm 包并处理依赖关系。</p>
+<h3 id="yum-命令"><a href="#yum-命令" class="headerlink" title="yum 命令"></a>yum 命令</h3><p>安装指定软件 :</p>
+<div class="hljs"><pre><code class="hljs shell">yum -y install nginx # -y 表示互动时输入 yes</code></pre></div>
+
+<p>列出系统中已安装软件</p>
+<div class="hljs"><pre><code class="hljs shell">yum list</code></pre></div>
+
+<p>列出系统中可升级的所有软件</p>
+<div class="hljs"><pre><code class="hljs shell">yum check-update</code></pre></div>
+
+<p>升级系统中可升级的所有软件</p>
+<div class="hljs"><pre><code class="hljs shell">yum update</code></pre></div>
+
+<p>升级指定软件</p>
+<div class="hljs"><pre><code class="hljs shell">yum update nginx</code></pre></div>
+
+<p>卸载指定软件</p>
+<div class="hljs"><pre><code class="hljs shell">yum remove nginx</code></pre></div>
+
+<h3 id="repo-文件"><a href="#repo-文件" class="headerlink" title="repo 文件"></a>repo 文件</h3><p>yum 使用仓库保存管理 rpm 包，仓库的配置文件以 <code>.repo</code> 为扩展名，存放在 <code>/etc/yum.repo.d/</code> 目录下。一个配置文件中包含了一个或多个 yum 仓库的配置信息。</p>
+<h3 id="rpm-包下载"><a href="#rpm-包下载" class="headerlink" title="rpm 包下载"></a>rpm 包下载</h3><h4 id="使用-downloadonly"><a href="#使用-downloadonly" class="headerlink" title="使用 --downloadonly"></a>使用 <code>--downloadonly</code></h4><p>没有命令需要先安装 <code>downloadonly</code> 插件</p>
+<div class="hljs"><pre><code class="hljs shell">yum install yum-plugin-downloadonly</code></pre></div>
+
+<p>下载 rpm 包和依赖</p>
+<div class="hljs"><pre><code class="hljs shell">yum install --downloadonly --downloaddir=/home/rpm-share/yum nginx</code></pre></div>
+
+<p>默认下载路径：<code>/var/cache/yum/x86_64/[centos/fedora-version]/[repository]/packages</code></p>
+<p>已安装再次下载：<code>reinstall</code>，此时不会下载依赖。</p>
+<h4 id="使用-yumdownloader"><a href="#使用-yumdownloader" class="headerlink" title="使用 yumdownloader"></a>使用 yumdownloader</h4><p>没有命令需要先安装：</p>
+<div class="hljs"><pre><code class="hljs shell">yum install -y yum-utils</code></pre></div>
+
+<p>下载 rpm 包和依赖</p>
+<div class="hljs"><pre><code class="hljs shell">yumdownloader --destdir=/home/rpm-share/yum --resolve nginx</code></pre></div>
+
+<p><code>--destdir</code> 指定下载的软件包存放路径，不指定默认当前路径<br><code>--resolve</code> 解决依赖关系并下载所需的包</p>
+<h2 id="rpm-包制作"><a href="#rpm-包制作" class="headerlink" title="rpm 包制作"></a>rpm 包制作</h2><h3 id="spec-基础"><a href="#spec-基础" class="headerlink" title="spec 基础"></a>spec 基础</h3><p>要制作 rpm 包，关键在于编写包的 spec 描述文件。</p>
+<h4 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h4><ul>
+<li><p><code>Name</code>：软件包的名字，后面可使用 <code>%&#123;name&#125;</code> 的方式引用</p>
+</li>
+<li><p><code>Version</code>：软件版本号，后面可使用 <code>%&#123;version&#125;</code> 引用</p>
+</li>
+<li><p><code>Release</code>：软件包释出号/发行号，后面可使用 <code>%&#123;release&#125;</code> 引用</p>
+</li>
+<li><p><code>Group</code>：软件分组，参见 <code>/usr/share/doc/rpm-4.x.x/GROUPS</code></p>
+</li>
+<li><p><code>License</code>：软件授权方式，通常是 GPL（自由软件）或 GPLv2，BSD</p>
+</li>
+<li><p><code>Summary</code>：软件包的内容概要</p>
+</li>
+<li><p><code>URL</code>：软件的主页</p>
+</li>
+<li><p><code>Packager</code>：打包者的信息</p>
+</li>
+<li><p><code>Vendor</code>：软件开发者的名字，发行商或打包组织的信息，例如 <code>Fedora Project</code></p>
+</li>
+<li><p><code>Source0</code>：源代码包的名称，可以带多个用 <code>Source1</code>、<code>Source2</code> 等源，后面也可以用 <code>%&#123;source1&#125;</code>、<code>%&#123;source2&#125;</code> 引用，如有补丁也写在此处，如：</p>
+<div class="hljs"><pre><code class="hljs shell">Source0: %&#123;name&#125;-%&#123;version&#125;.tar.gz
+Patch0: some-bugs0.patch                    
+Patch1: some-bugs1.patch                   </code></pre></div>
+</li>
+<li><p><code>BuildRequires</code>: 制作过程中用到的软件包，构建依赖</p>
+</li>
+<li><p><code>Requires</code>: 安装时所需软件包</p>
+<ul>
+<li><code>Requires(pre/post/preun/postun)</code>: 指定不同阶段的依赖</li>
+</ul>
+</li>
+<li><p><code>BuildRoot</code>: 这个是安装或编译时使用的「虚拟目录」，打包时会用到该目录下文件，可查看安装后文件路径，例如：<code>BuildRoot: %_topdir/BUILDROOT</code>。</p>
+</li>
+<li><p><code>%description</code>：软件包详细说明</p>
+</li>
+</ul>
+<h4 id="主体"><a href="#主体" class="headerlink" title="主体"></a>主体</h4><p>主体包括 <strong>%prep</strong>，**%build<strong>，</strong>%install<strong>，</strong>%files<strong>，</strong>%clean** 几个关键阶段。</p>
+<h5 id="prep-阶段"><a href="#prep-阶段" class="headerlink" title="%prep 阶段"></a>%prep 阶段</h5><p>对源代码包进行解压和打补丁，如：</p>
+<div class="hljs"><pre><code class="hljs sh">%prep
+%setup -q    <span class="hljs-comment"># 将 %sourcedir 目录下的源代码解压到 %builddir 目录下</span>
+%pathch -p1  <span class="hljs-comment"># 给源代码打上补丁 Patch0 ， -p1 是忽略 patch 的第一层目录</span></code></pre></div>
+
+<h5 id="build-阶段"><a href="#build-阶段" class="headerlink" title="%build 阶段"></a>%build 阶段</h5><p>在 <code>%_builddir</code> 目录下执行源码包的编译。一般是执行执行常见的 <code>configure</code> 和 <code>make</code> 操作，如：</p>
+<div class="hljs"><pre><code class="hljs sh">%configure                                              <span class="hljs-comment"># 执行源代码的 configure 配置</span>
+make %&#123;?_smp_mflags&#125; OPTIMIZE=<span class="hljs-string">&quot;%&#123;optflags&#125;&quot;</span>           <span class="hljs-comment"># 多核则并行编译</span></code></pre></div>
+
+<h5 id="install-阶段"><a href="#install-阶段" class="headerlink" title="%install 阶段"></a>%install 阶段</h5><p>执行 <code>make install</code> 命令操作。开始把软件安装到虚拟的根目录中。这个阶段会在 <code>%buildrootdir</code> 目录里建好目录结构，然后将需要打包到 rpm 软件包里的文件从 <code>%builddir</code> 里拷贝到 <code>%_buildrootdir</code> 里对应的目录里。</p>
+<p>在 <code>~/rpmbuild/BUILD/%&#123;name&#125;-%&#123;version&#125;</code> 目录中进行 <code>make install</code> 的操作。<code>%install</code> 很重要，因为如果这里的路径不对的话，则下面 <code>%file</code> 中寻找文件的时候就会失败。</p>
+<p>注意：<code>%install</code> 部分使用的是绝对路径，而 <code>%file</code> 部分使用则是相对路径。</p>
+<p>当用户最终用 <code>rpm -ivh </code> 安装软件包时，这些文件会安装到用户系统中相应的目录里。</p>
+<p>如：</p>
+<div class="hljs"><pre><code class="hljs sh">%install
+rm -rf <span class="hljs-variable">$RPM_BUILD_ROOT</span>                         <span class="hljs-comment"># 清空下安装目录，实际会自动清除</span>
+make install DESTDIR=<span class="hljs-variable">$RPM_BUILD_ROOT</span>         <span class="hljs-comment"># 安装到 buildroot 目录下         </span></code></pre></div>
+
+<p><code>%install</code> 阶段还可以执行相关脚本</p>
+<ul>
+<li><code>%pre</code> 安装前执行的脚本</li>
+<li><code>%post</code> 安装后执行的脚本</li>
+<li><code>%preun</code> 卸载前执行的脚本</li>
+<li><code>%postun</code> 卸载后执行的脚本</li>
+</ul>
+<p><code>%preun</code> 在升级的时候会执行，<code>%postun</code> 在升级的时候不会执行</p>
+<h5 id="file-阶段"><a href="#file-阶段" class="headerlink" title="%file 阶段"></a>%file 阶段</h5><p>说明会将 <code>%&#123;buildroot&#125;</code> 目录下的哪些文件和目录最终打包到rpm包里。</p>
+<p>定义软件包所包含的文件，分为三类：</p>
+<ul>
+<li>说明文档（doc）</li>
+<li>配置文件（config）</li>
+<li>执行程序</li>
+</ul>
+<p>在 <code>%files</code> 阶段的第一条命令的语法是：</p>
+<div class="hljs"><pre><code class="hljs sh">%defattr(文件权限,用户名,组名,目录权限) </code></pre></div>
+
+<p>还可定义文件存取权限，拥有者及组别。如：</p>
+<div class="hljs"><pre><code class="hljs sh">%files
+%defattr (-,root,root,0755)                     <span class="hljs-comment"># 设定默认权限</span>
+%config(noreplace) /etc/my.cnf                  <span class="hljs-comment"># 表明是配置文件，noplace 表示替换文件</span>
+%doc %&#123;_mandir&#125;/1.log                           <span class="hljs-comment"># 表明这个是文档</span>
+%attr(755, root, root) %&#123;_sbindir&#125;/mysqld        <span class="hljs-comment"># 分别是权限，用户，用户组</span>
+%exclude %&#123;_mandir&#125;/2.log                      <span class="hljs-comment"># 列出不想打包到 rpm 中的文件</span></code></pre></div>
+
+<p>注意：</p>
+<ul>
+<li><code>%files</code> 里的文件同时需要在 <code>%install</code> 中安装。</li>
+<li><code>%&#123;buildroot&#125;</code> 里的所有文件都要明确被指定是否要被打包到 rpm 里。</li>
+<li>如果声明了 <code>%&#123;buildroot&#125;</code> 里不存在的文件或者目录也会报错。</li>
+<li><code>%exclude</code> 指定的文件如果不存在会报错。</li>
+</ul>
+<h5 id="clean-阶段"><a href="#clean-阶段" class="headerlink" title="%clean 阶段"></a>%clean 阶段</h5><p>编译完成后一些清理工作，主要包括对 <code>%&#123;buildroot&#125;</code>目录的清空（非必须），如：</p>
+<div class="hljs"><pre><code class="hljs sh">make clean</code></pre></div>
+
+<h5 id="changelog-阶段"><a href="#changelog-阶段" class="headerlink" title="%changelog 阶段"></a>%changelog 阶段</h5><p>主要记录的每次打包时的修改变更日志。标准格式是：</p>
+<div class="hljs"><pre><code class="hljs sh">* date +<span class="hljs-string">&quot;%a %b %d %Y&quot;</span> 修改人 邮箱 本次版本 x.y.z-p 
+- 本次变更修改了那些内容</code></pre></div>
+
+<h4 id="宏"><a href="#宏" class="headerlink" title="宏"></a>宏</h4><h5 id="内建宏"><a href="#内建宏" class="headerlink" title="内建宏"></a>内建宏</h5><p>spec文件中在定义文件的安装路径时通常会使用RPM内建的宏定义，可以在 <code>/usr/lib/rpm/macros</code> 找到，附录一些常见的宏：</p>
+<div class="hljs"><pre><code class="hljs haml"><span class="hljs-tag">%&#123;_sysconfdir&#125;</span>        /etc
+<span class="hljs-tag">%&#123;_prefix&#125;</span>            /usr
+<span class="hljs-tag">%&#123;_exec_prefix&#125;</span>       %&#123;_prefix&#125;
+<span class="hljs-tag">%&#123;_bindir&#125;</span>            %&#123;_exec_prefix&#125;/bin
+<span class="hljs-tag">%&#123;_lib&#125;</span>               lib (lib64 on 64bit systems)
+<span class="hljs-tag">%&#123;_libdir&#125;</span>            %&#123;_exec_prefix&#125;/%&#123;_lib&#125;
+<span class="hljs-tag">%&#123;_libexecdir&#125;</span>        %&#123;_exec_prefix&#125;/libexec
+<span class="hljs-tag">%&#123;_sbindir&#125;</span>           %&#123;_exec_prefix&#125;/sbin
+<span class="hljs-tag">%&#123;_sharedstatedir&#125;</span>    /var/lib
+<span class="hljs-tag">%&#123;_datadir&#125;</span>           %&#123;_prefix&#125;/share
+<span class="hljs-tag">%&#123;_includedir&#125;</span>        %&#123;_prefix&#125;/include
+<span class="hljs-tag">%&#123;_oldincludedir&#125;</span>     /usr/include
+<span class="hljs-tag">%&#123;_infodir&#125;</span>           /usr/share/info
+<span class="hljs-tag">%&#123;_mandir&#125;</span>            /usr/share/man
+<span class="hljs-tag">%&#123;_localstatedir&#125;</span>     /var
+<span class="hljs-tag">%&#123;_initddir&#125;</span>          %&#123;_sysconfdir&#125;/rc.d/init.d 
+<span class="hljs-tag">%&#123;_topdir&#125;</span>            %&#123;getenv:HOME&#125;/rpmbuild
+<span class="hljs-tag">%&#123;_builddir&#125;</span>          %&#123;_topdir&#125;/BUILD
+<span class="hljs-tag">%&#123;_rpmdir&#125;</span>            %&#123;_topdir&#125;/RPMS
+<span class="hljs-tag">%&#123;_sourcedir&#125;</span>         %&#123;_topdir&#125;/SOURCES
+<span class="hljs-tag">%&#123;_specdir&#125;</span>           %&#123;_topdir&#125;/SPECS
+<span class="hljs-tag">%&#123;_srcrpmdir&#125;</span>         %&#123;_topdir&#125;/SRPMS
+<span class="hljs-tag">%&#123;_buildrootdir&#125;</span>      %&#123;_topdir&#125;/BUILDROOT
+<span class="hljs-tag">%&#123;_var&#125;</span>               /var
+<span class="hljs-tag">%&#123;_tmppath&#125;</span>           %&#123;_var&#125;/tmp
+<span class="hljs-tag">%&#123;_usr&#125;</span>               /usr
+<span class="hljs-tag">%&#123;_usrsrc&#125;</span>            %&#123;_usr&#125;/src
+<span class="hljs-tag">%&#123;_docdir&#125;</span>            %&#123;_datadir&#125;/doc
+<span class="hljs-tag">%&#123;buildroot&#125;</span>          %&#123;_buildrootdir&#125;/%&#123;name&#125;-%&#123;version&#125;-%&#123;release&#125;.%&#123;_arch&#125;
+$RPM_BUILD_ROOT       %&#123;buildroot&#125;</code></pre></div>
+
+<p>通过命令 <code>rpm --eval &quot;%&#123;宏名称&#125;&quot;</code> 来查看具体对应路径，如：</p>
+<div class="hljs"><pre><code class="hljs sh">rpm --<span class="hljs-built_in">eval</span> <span class="hljs-string">&quot;%&#123;_topdir&#125;&quot;</span></code></pre></div>
+
+<h5 id="自定义宏"><a href="#自定义宏" class="headerlink" title="自定义宏"></a>自定义宏</h5><p>使用 <code>%define</code> 可自定义宏变量。</p>
+<p><code>%define __os_install_post %&#123;nil&#125;</code></p>
+<p>打包时会对所有安装的文件进行 <code>strip</code> 操作，去除调试信息等，<code>strip</code> 操作定义在宏 <code>__os_install_post</code> 中，可通过 <code>rpmbuild --showrc</code> 查看，将其设为 <code>%&#123;nil&#125;</code> 可跳过 <code>strip</code> 操作。</p>
+<h3 id="rpmbuild-打包"><a href="#rpmbuild-打包" class="headerlink" title="rpmbuild 打包"></a>rpmbuild 打包</h3><p>使用 <code>rpmbuild</code> 制作rpm包，<code>rpmbuid</code> 的默认工作路径是 <code>$HOME/rpmbuild</code>，并且推荐用户在制作 rpm 软件包时尽量不要以 root 身份进行操作。</p>
+<h4 id="打包目录"><a href="#打包目录" class="headerlink" title="打包目录"></a>打包目录</h4><p>构建打包目录，一般在 <code>~/rpmbuild</code> 目录下建立以下目录：</p>
+<ul>
+<li><code>SPEC</code></li>
+<li><code>SOURCE</code> </li>
+<li><code>BUILD</code></li>
+<li><code>RPM</code></li>
+<li><code>SRPM</code></li>
+<li><code>BUILDROOT</code></li>
+</ul>
+<p>对应关系：</p>
+<table>
+<thead>
+<tr>
+<th>默认位置</th>
+<th>宏</th>
+<th>名称</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>~/rpmbuild/SPECS</td>
+<td>%_specdir</td>
+<td>Spec 文件目录</td>
+<td>保存 RPM 包配置（.spec）文件</td>
+</tr>
+<tr>
+<td>~/rpmbuild/SOURCES</td>
+<td>%_sourcedir</td>
+<td>源代码目录</td>
+<td>保存源码包（如 .tar 包）和所有 patch 补丁</td>
+</tr>
+<tr>
+<td>~/rpmbuild/BUILD</td>
+<td>%_builddir</td>
+<td>构建目录</td>
+<td>源码包被解压至此，并在该目录的子目录完成编译</td>
+</tr>
+<tr>
+<td>~/rpmbuild/RPMS</td>
+<td>%_rpmdir</td>
+<td>标准 RPM 包目录</td>
+<td>生成/保存二进制 RPM 包</td>
+</tr>
+<tr>
+<td>~/rpmbuild/SRPMS</td>
+<td>%_srcrpmdir</td>
+<td>源代码 RPM 包目录</td>
+<td>生成/保存源码 RPM 包（SRPM）</td>
+</tr>
+<tr>
+<td>~/rpmbuild/BUILDROOT</td>
+<td>%_buildrootdir</td>
+<td>最终安装目录</td>
+<td>保存 <code>%install</code> 阶段安装的文件</td>
+</tr>
+</tbody></table>
+<h4 id="打包命令"><a href="#打包命令" class="headerlink" title="打包命令"></a>打包命令</h4><p>切换到 <code>rpmbuild/SPECS</code> 目录下执行打包编译命令，如</p>
+<div class="hljs"><pre><code class="hljs sh">rpmbuild -ba 软件名-版本.spec </code></pre></div>
+
+<p><code>rpmbuild</code>命令参数：</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>-bp</code></td>
+<td align="center">只解压源码及应用补丁</td>
+</tr>
+<tr>
+<td align="center"><code>-bc</code></td>
+<td align="center">只进行编译</td>
+</tr>
+<tr>
+<td align="center"><code>-bi</code></td>
+<td align="center">只进行安装到 <code>%&#123;buildroot&#125;</code></td>
+</tr>
+<tr>
+<td align="center"><code>-bb</code></td>
+<td align="center">只生成二进制 rpm 包</td>
+</tr>
+<tr>
+<td align="center"><code>-bs</code></td>
+<td align="center">只生成源码 rpm 包</td>
+</tr>
+<tr>
+<td align="center"><code>-ba</code></td>
+<td align="center">生成二进制 rpm 包和源码 rpm 包</td>
+</tr>
+<tr>
+<td align="center"><code>--target</code></td>
+<td align="center">指定生成 rpm 包的平台</td>
+</tr>
+</tbody></table>
+<h4 id="修改默认工作路径"><a href="#修改默认工作路径" class="headerlink" title="修改默认工作路径"></a>修改默认工作路径</h4><p><code>rpmbuild</code> 默认工作路径通常由 <code>%_topdir</code> 的宏变量来定义。如果想更改有以下方法：</p>
+<h5 id="修改-rpmmacros-的隐藏文件"><a href="#修改-rpmmacros-的隐藏文件" class="headerlink" title="修改 .rpmmacros 的隐藏文件"></a>修改 <code>.rpmmacros</code> 的隐藏文件</h5><p>在 <code>root</code> 下建立一个名为 <code>.rpmmacros</code> 的隐藏文件，然后在里面重新定义 <code>%_topdir</code>，指向一个新的目录名。<code>.rpmmacros</code> 文件内容如下：</p>
+<div class="hljs"><pre><code class="hljs sh">%_topdir %(<span class="hljs-built_in">echo</span> <span class="hljs-variable">$HOME</span>)/rpmbuild
+
+%_smp_mflags %( \
+    [ -z <span class="hljs-string">&quot;<span class="hljs-variable">$RPM_BUILD_NCPUS</span>&quot;</span> ] \\\
+        &amp;&amp; RPM_BUILD_NCPUS=<span class="hljs-string">&quot;`/usr/bin/nproc 2&gt;/dev/null || \\\</span>
+<span class="hljs-string">                             /usr/bin/getconf _NPROCESSORS_ONLN`&quot;</span>; \\\
+    <span class="hljs-keyword">if</span> [ <span class="hljs-string">&quot;<span class="hljs-variable">$RPM_BUILD_NCPUS</span>&quot;</span> -gt 16 ]; <span class="hljs-keyword">then</span> \\\
+        <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;-j16&quot;</span>; \\\
+    <span class="hljs-keyword">elif</span> [ <span class="hljs-string">&quot;<span class="hljs-variable">$RPM_BUILD_NCPUS</span>&quot;</span> -gt 3 ]; <span class="hljs-keyword">then</span> \\\
+        <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;-j<span class="hljs-variable">$RPM_BUILD_NCPUS</span>&quot;</span>; \\\
+    <span class="hljs-keyword">else</span> \\\
+        <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;-j3&quot;</span>; \\\
+    <span class="hljs-keyword">fi</span> )
+
+%__arch_install_post \
+    [ <span class="hljs-string">&quot;%&#123;buildarch&#125;&quot;</span> = <span class="hljs-string">&quot;noarch&quot;</span> ] || QA_CHECK_RPATHS=1 ; \
+    <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;QA_CHECK_RPATHS:-&#125;</span>&quot;</span> <span class="hljs-keyword">in</span> [1yY]*) /usr/lib/rpm/check-rpaths ;; <span class="hljs-keyword">esac</span> \
+    /usr/lib/rpm/check-buildroot</code></pre></div>
+
+<h5 id="使用-rpmbuild-命令时定义"><a href="#使用-rpmbuild-命令时定义" class="headerlink" title="使用 rpmbuild 命令时定义"></a>使用 <code>rpmbuild</code> 命令时定义</h5><p>使用 <code>rpmbuild</code> 时覆盖 <code>%_topdir</code> 的宏变量定义来指定此次打包的工作路径：</p>
+<div class="hljs"><pre><code class="hljs sh">rpmbuild --define <span class="hljs-string">&quot;_topdir <span class="hljs-variable">$&#123;dir:-新的目录&#125;</span>&quot;</span> -ba 软件名-版本.spec </code></pre></div>
+
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/RPM/">RPM</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/08/05/hello-world/">
+                        <span class="hidden-mobile">Hello World</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+    <div>
+      <span id="timeDate">载入天数...</span>
+      <span id="times">载入时分秒...</span>
+      <script>
+        var now = new Date();
+        function createtime() {
+          var grt = new Date("08/04/2020 22:00:00");//此处修改你的建站时间或者网站上线时间
+          now.setTime(now.getTime() + 250);
+          days = (now - grt) / 1000 / 60 / 60 / 24;
+          dnum = Math.floor(days);
+          hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+          hnum = Math.floor(hours);
+          if (String(hnum).length == 1) {
+            hnum = "0" + hnum;
+          }
+          minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+          mnum = Math.floor(minutes);
+          if (String(mnum).length == 1) {
+            mnum = "0" + mnum;
+          }
+          seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+          snum = Math.round(seconds);
+          if (String(snum).length == 1) {
+            snum = "0" + snum;
+          }
+          document.getElementById("timeDate").innerHTML = "本站安全运行&nbsp" + dnum + "&nbsp天";
+          document.getElementById("times").innerHTML = hnum + "&nbsp小时&nbsp" + mnum + "&nbsp分&nbsp" + snum + "&nbsp秒";
+        }
+        setInterval("createtime()", 250);
+      </script>
+    </div>
+  </div>
+
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+
+  <script>
+    function typing(id, title){
+        var typed = new Typed('#' + id, {
+            strings: [
+              '  ',
+              title + "&nbsp;",
+            ],
+            cursorChar: "❤️",
+            typeSpeed: 70,
+            loop: false,
+        });
+        typed.stop();
+        $(document).ready(function () {
+            $(".typed-cursor").addClass("h2");
+            typed.start();
+        });
+    }
+
+    
+        typing("subtitle", "RPM介绍及打包总结")
+    
+
+  </script>
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
