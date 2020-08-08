@@ -1,13 +1,18 @@
-@font-face {
+/* @font-face {
     font-family: 'Fira Code';
     src: url("https://cdn.jsdelivr.net/gh/pxxyyz/blog-file/fonts/FiraCode.woff2") format('woff2'), url("https://cdn.jsdelivr.net/gh/pxxyyz/blog-file/fonts/FiraCode.woff") format('woff');
-}
+} */
 
 
 /* @font-face {
     font-family: 'Edo-SZ';
     src: url("https://cdn.jsdelivr.net/gh/pxxyyz/blog-file/fonts/Edo-SZ.woff2") format('woff2'), url("https://cdn.jsdelivr.net/gh/pxxyyz/blog-file/fonts/Edo-SZ.woff") format('woff');
 } */
+
+@font-face {
+    font-family: 'JetBrainsMono-Regular';
+    src: url("https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed/images/blog/JetBrainsMono-Regular.woff2") format('woff2'), url("https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed/images/blog/JetBrainsMono-Regular.woff") format('woff');
+}
 
 a.anchor {
     display: block;
@@ -221,7 +226,7 @@ i {
 }
 
 code {
-    font-family: 'Fira Code', monospace !important;
+    font-family: 'JetBrainsMono-Regular', monospace !important;
 }
 
 .hljs {
