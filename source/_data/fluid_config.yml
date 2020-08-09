@@ -178,9 +178,20 @@ scroll_top_arrow:  # 向顶部滚动的箭头
 # Index Page
 #---------------------------
 index:
-  banner_img: https://api.berryapi.net/?service=App.Bing.Images&day=0&w=1920&h=1080
-    # https://bing.biturl.top/?resolution=1920&format=image&index=0&mkt=zh-CN # 首页 Banner 头图，以下相同
+  banner_img: https://api.dujin.org/bing/1920.php
+  # https://bing.ioliu.cn/v1/rand?w=1920&h=1080
+  # https://api.berryapi.net/?service=App.Bing.Images&day=0&w=1920&h=1080
+  # https://bing.biturl.top/?resolution=1920&format=image&index=0&mkt=zh-CN # 首页 Banner 头图，以下相同
   #  http://www.neweb.top/bing.php
+# https://api.ixiaowai.cn/api/api.php（二次元动漫）
+# https://api.ixiaowai.cn/mcapi/mcapi.php（mc酱动漫）
+# https://api.ixiaowai.cn/gqapi/gqapi.php（高清壁纸）
+# 1366*768分辨率图片地址
+# https://api.dujin.org/bing/1366.php
+# 1920*1080分辨率图片地址
+# https://api.dujin.org/bing/1920.php
+# 手机标准分辨率1080*1920图片地址
+# https://api.dujin.org/bing/m.php
   banner_img_height: 100  # 头图高度，屏幕百分比，available: 0 - 100
   banner_mask_alpha: 0.3  # 头图黑色蒙版的透明度，available: 0 - 1.0， 0 是完全透明（无蒙版），1 是完全不透明
   post_default_img: '' # 默认的文章封面图，当没有指定 index_img 时会使用该图片，若都为空则不显示任何图片
@@ -226,7 +237,7 @@ post:  # 部分配置同时控制自定义页面，注意备注
       format: "{} 分钟"
       words: 100  # 每分钟阅读多少字，如果是技术文章，建议降低
     views:  # 阅读次数
-      enable: true
+      enable: false
       source: "busuanzi"  # 统计数据来源，可选：busuanzi | leancloud，使用 leancloud 需要在 web_analytics 中设置 api 参数，使用 busuanzi 注意可能间歇抽风
       format: "{} 次"
   updated:  # 在文章开头显示文章更新时间，该时间默认是 md 文件更新时间，可通过 front-matter 中 `updated` 手动指定（和 date 一样格式）
@@ -383,7 +394,7 @@ about:  # 关于页需要手动创建，具体请见：https://hexo.fluid-dev.co
   subtitle:  # 打字机内容
   avatar: https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed/images/blog/avatar.png # 头像
   name: LiLittleCat
-  introduce: '一句简短的介绍' # 支持 HTML
+  introduce: "Welcome to LiLittleCat's Nest" # 支持 HTML
   icons: # 更多图标可从 https://hexo.fluid-dev.com/docs/icon/ 查找，class 代表图标的 css class
     - { class: 'iconfont icon-github-fill', link: 'https://github.com/LiLittleCat', tip: 'GitHub' }
     - { class: 'iconfont icon-douban-fill', link: 'https://douban.com', tip: '豆瓣' }
