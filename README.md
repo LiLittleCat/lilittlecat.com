@@ -228,12 +228,12 @@ title: 标题
 # excerpt: 摘要（摘要不在文中显示用这种方式）
 tags:
   - 标签
-categories：
+categories: 
   - 分类（多个分类不是平级，父子级别）
 index_img: 首页中的题图
 banner_img: 文章中的题图
 abbrlink: 自动生成的短链接
-comments： true（开启评论）
+comments: true（开启评论）
 date: 时间
 ---
 
