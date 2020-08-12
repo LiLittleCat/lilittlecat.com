@@ -229,7 +229,7 @@ title: 标题
 tags:
   - 标签
 categories: 
-  - 分类（多个分类不是平级，父子级别）
+  - 分类（多个分类不是平级，父子级别）  
 index_img: 首页中的题图
 banner_img: 文章中的题图
 abbrlink: 自动生成的短链接
@@ -241,6 +241,30 @@ date: 时间
 
 <!-- more -->
 ```
+> 父子级分类：
+>
+> ```yaml
+> categories:
+>   - Java
+>   - Servlet
+> ```
+>
+> 或者：
+>
+> ```yaml
+> categories: [Java, Servlet]
+> ```
+>
+> 这样写 Servlet 是 Java 的子类。
+>
+> 同级分类：
+>
+> ```yaml
+> categories:
+>   -[Java]
+>   -[Servlet]
+> ```
+> Tag 以上两种写法均可。
 
 完成编辑后
 
