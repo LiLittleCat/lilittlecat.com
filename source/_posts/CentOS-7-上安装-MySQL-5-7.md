@@ -54,7 +54,7 @@ yum -y install mysql-community-server
 
 ### 无网络先在有网络的地方下载安装包
 
-下载地址：https://downloads.mysql.com/archives/community/，选择对应版本下载。
+下载地址：[https://downloads.mysql.com/archives/community/](https://downloads.mysql.com/archives/community/)，选择对应版本下载。
 
 > 推荐下载 mysql-5.7.30-1.el7.x86_64.rpm-bundle.tar
 
