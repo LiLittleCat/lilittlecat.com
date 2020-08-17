@@ -5,9 +5,9 @@ tags:
   - MySQL
   - CentOS
 categories:
-  - - 环境搭建
-index_img: 'https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed/images/blog/mysql-logo.svg'
-banner_img: 'https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed/images/blog/mysql-logo.svg'
+  - 环境搭建
+index_img: 'img/mysql-logo.svg'
+banner_img: 'img/mysql-logo.svg'
 abbrlink: f35f8af2
 date: 2020-08-12 18:38:18
 ---
