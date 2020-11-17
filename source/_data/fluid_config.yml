@@ -398,7 +398,7 @@ about:  # 关于页需要手动创建，具体请见：https://hexo.fluid-dev.co
   banner_img_height: 60  # available: 0 - 100
   banner_mask_alpha: 0.1  # available: 0 - 1.0
   subtitle:  # 打字机内容
-  avatar: https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed/images/blog/avatar.png # 头像
+  avatar: /img/LiLittleCat.png # 头像
   name: LiLittleCat
   introduce: "Welcome to LiLittleCat's Nest" # 支持 HTML
   icons: # 更多图标可从 https://hexo.fluid-dev.com/docs/icon/ 查找，class 代表图标的 css class
