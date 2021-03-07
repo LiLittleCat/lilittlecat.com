@@ -5,9 +5,9 @@ tags:
   - MySQL
   - CentOS
 categories:
-  - 环境搭建
-index_img: 'img/mysql-logo.svg'
-banner_img: 'img/mysql-logo.svg'
+  - [技术, 环境搭建]
+index_img: 'images/mysql-logo.svg'
+banner_img: 'images/mysql-logo.svg'
 abbrlink: f35f8af2
 date: 2020-08-12 18:38:18
 ---

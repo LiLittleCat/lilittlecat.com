@@ -1,0 +1,348 @@
+/************************* Header **************************/
+
+/* header-隐藏顶部线条 */
+.headband {
+  display: none;
+}
+
+/* header-顶部空白 */
+.header, .main-inner {
+  margin-top: 10px;
+
+  +mobile() {
+    margin-top: 0;
+  }
+}
+
+/* 圆角 */
+.header-inner, ///顶部圆角
+.sidebar-inner { //侧边头像圆角
+  border-radius: $myradius;
+}
+
+.site-brand-container {
+  border-radius: $myradius $myradius 0 0;
+
+  +mobile() {
+    border-radius: 0 0 $myradius $myradius;
+  }
+}
+
+/* header-页面背景 */
+body {
+  background-image: url($body-bg-url);
+  background-repeat: repeat;
+  background-attachment: fixed;
+
+  @media (prefers-color-scheme: dark) {
+    background-image: none;
+  }
+}
+
+/* Day of Mourning */
+if (hexo-config('gray')) {
+  html {
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter: gray;
+  }
+  @media (prefers-color-scheme: light) {
+    body {
+      background-image: url($body-bg-gray-url);
+    }
+  }
+}
+
+/************************ Sidebar **************************/
+
+/* sidebar-标题背景 */
+// .site-brand-container {
+//   background: url($site-brand-bg-url);
+//   background-position: 70% 20%;
+//   background-size: cover;
+// }
+
+/* sidebar-标题 */
+.site-title {
+  font-weight: bold;
+}
+
+/* sidebar-副标题 */
+.site-subtitle {
+  font-weight: bold;
+  font-family: $font-family-quote;
+  color: var(--brand-color);
+  font-size: .9em;
+}
+
+/* sidebar-站点描述介绍 */
+.site-description {
+  color: var(--blockquote-color);
+}
+
+/* sidebar-二级菜单圆角 */
+.sub-menu {
+  border-radius: $myradius !important;
+}
+
+/************************** Post ***************************/
+
+/* post-文章卡片圆角 */
+.post-block,
+.post-block+.post-block {
+  border-radius: $myradius !important;
+}
+
+/* post-首页文章标题 */
+.index .post-title {
+  text-align: left;
+  border-left: $btn-default-bg 8px solid;
+  padding-left: 10px;
+}
+
+/* post-首页文章信息 */
+.index .post-meta {
+  justify-content: left;
+}
+
+/* post-文章标题 */
+.posts-expand .post-title {
+  font-size: 1.35em;
+  font-weight: bold;
+
+  +mobile() {
+    margin-top: 10px;
+  }
+}
+
+/* post-文章信息 */
+.posts-expand .post-header {
+  margin-bottom: 30px;
+}
+
+/* post-段后距 */
+p {
+  margin-bottom: 12px;
+}
+
+/* post-正文字号 */
+.post-body {
+  font-size: 1em;
+}
+
+/* post-标签选择卡片加粗 */
+.post-body .tabs ul.nav-tabs li.tab a {
+  font-weight: bold;
+}
+
+/* post-超链接 */
+.post-body a {
+  border-bottom-color: $grey-light;
+
+  &:hover {
+    border-bottom-color: var(--link-hover-color);
+  }
+}
+
+/* post-图片标题 */
+.post-body .image-caption {
+  margin: 0 auto 15px;
+}
+
+/* post-图片阴影 */
+.posts-expand .post-body img {
+  box-shadow: $image-box-shadow;
+}
+
+/* post-引用与 note 字体 */
+blockquote p,
+.post-body .note {
+  font-family: $font-family-quote;
+}
+
+/* post-行内代码 */
+code {
+  font-size: .85em;
+  background: none;
+  color: var(--text-color);
+}
+
+/* post-思源宋体列表打叉修复 */
+li {
+  text-align: left;
+}
+
+/************************ Button ***************************/
+
+/* button-back2top */
+.back-to-top {
+  // background: $btn-default-bg;
+  opacity: .8;
+  font-weight: bold;
+  font-size: 1em;
+  border-radius: 1em;
+}
+
+/* button-reward */
+.donations {
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: 25px;
+}
+
+.donation-label {
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+  font-size: .9em;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.afdian-button {
+  donation-button();
+  font-size: .95em;
+  background-color: #946ce6;
+}
+
+.paypal-button {
+  donation-button();
+  font-size: .95em;
+  background-color: #0070ba;
+}
+
+/* 修改选中字符的颜色 */
+::selection {
+  background: rgba(0, 149, 255, 0.2);
+  color: var(--blockquote-color);
+}
+
+/****************** Pagination & Footer ********************/
+
+/* pagination-删去页码框 */
+.pagination {
+  border: none !important;
+  background: none !important;
+  box-shadow: none !important;
+}
+
+/* pagination-页码按钮 */
+.pagination .prev,
+.pagination .next,
+.pagination .page-number {
+  border: none;
+  border-radius: 1em;
+
+  &:hover {
+    color: white;
+    background: $btn-default-hover-bg;
+    btn-shadow-hover-only();
+  }
+}
+
+/* pagination-当前页码 */
+.pagination .page-number.current {
+  background: $btn-default-bg;
+  btn-shadow-only();
+}
+
+/* footer */
+.footer {
+  margin: 20px 0 15px 0;
+  color: var(--blockquote-color);
+}
+
+/************************ Overview *************************/
+
+/* categories */
+// +mobile() {
+//   .category-all-page .category-list-item {
+//     margin: 10px 40px;
+//   }
+
+//   .category-all-page .category-all ul {
+//     list-style-type: disc;
+//   }
+// }
+
+// +tablet-desktop() {
+//   .category-all-page .category-list-item {
+//     margin: 10px 12px;
+//   }
+
+//   ul.category-list {
+//     // text-align: center;
+//   }
+
+//   li.category-list-item {
+//     display: inline-block;
+//   }
+
+//   li.category-list-item a {
+//     line-height: 5;
+//     word-break: keep-all;
+//     padding: 2px 10px;
+//     // font-weight: bold;
+//     color: white;
+//     // background: $btn-default-bg;
+//     background: $whitesmoke;
+//     border-bottom: none;
+//     border-radius: 15px;
+//     btn-shadow();
+
+//     &:hover {
+//       color: white !important;
+//       text-decoration: none;
+//     }
+//     @media (prefers-color-scheme: dark) {
+//     color: var(--text-color) !important;
+//     background: $btn-default-bg;
+//   }
+//   }
+// }
+
+/* tags */
+.tag-cloud a, //标签云
+.posts-expand .post-tags a { //文章末标签
+  padding: 2px 10px;
+  margin: 8px;
+  background: $whitesmoke;
+  border-bottom: none;
+  border-radius: 15px;
+  btn-shadow();
+
+  &:hover {
+    color: white !important;
+    text-decoration: none;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    color: var(--text-color) !important;
+    background: $btn-default-bg;
+  }
+}
+
+// /************************* Comment ************************/
+
+// /* comment-圆角 */
+// .comments {
+//   border-radius: $myradius !important;
+// }
+
+// /* comment-输入框背景图片 */
+// .veditor {
+// 	background-image: url($comment-bg-url) !important;
+// 	background-repeat: no-repeat !important;
+// 	background-position: right !important;
+// }
+// .veditor:focus {
+// 	background-position-y: 200px !important;
+// 	transition: all .2s ease-in-out 0s !important;
+// }
+
+// .vcontent img[src^="https://img.t.sinajs.cn"] {
+//   width: 1.2em !important;
+//   display: inline !important;
+// }

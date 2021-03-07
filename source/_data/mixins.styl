@@ -1,0 +1,41 @@
+btn-shadow-only() {
+  -webkit-box-shadow: $box-shadow;
+  -moz-box-shadow: $box-shadow;
+  box-shadow: $box-shadow;
+}
+
+btn-shadow-hover-only() {
+  -webkit-box-shadow: $box-shadow-hover;
+  -moz-box-shadow: $box-shadow-hover;
+  box-shadow: $box-shadow-hover;
+}
+
+btn-shadow() {
+  btn-shadow-only();
+  the-transition-ease-out();
+
+  &:hover {
+    btn-shadow-hover-only();
+    background: $btn-default-hover-bg !important;
+  }
+}
+
+donation-button() {
+  color: white;
+  align-items: center;
+  box-shadow: $box-shadow;
+  font-size: 1rem;
+  height: 2.5em;
+  line-height: 1.5;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-color: transparent;
+  padding: .5em .75em;
+  border-radius: 4px;
+  margin: 0 10px;
+
+  &:hover {
+    color: white;
+    border-color: transparent;
+  }
+}

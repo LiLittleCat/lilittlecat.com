@@ -2,10 +2,9 @@
 title: Java 容器 - 概述
 excerpt: 本系列旨在归纳总结 Java 容器相关类的知识，并深入分析常用容器类的源代码。本文简单描述了 Java 容器相关概念。
 tags:
-  - Java
+  - Java 集合
 categories:
-  - Java
-  - 集合
+  - [技术, Java]
 index_img: 'https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed/images/blog/logo-java-text-color.svg'
 banner_img: 'https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed/images/blog/logo-java-text-color.svg'
 abbrlink: 81a892b9

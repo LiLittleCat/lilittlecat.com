@@ -3,6 +3,8 @@ title: RPM 介绍及打包总结
 # excerpt: 简单介绍一下 RPM，并总结制作 RPM 包的流程。（摘要不在文中显示用这种方式）
 tags:
   - RPM
+categories:
+  - [技术]
 index_img: 'https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed/images/blog/RPM_Logo.svg'
 banner_img: 'https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed/images/blog/RPM_Logo.svg'
 abbrlink: 22fd6dd2
