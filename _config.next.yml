@@ -43,6 +43,7 @@ scheme: Gemini
 
 # Dark Mode
 darkmode: false
+# darkmode: true
 
 
 # ---------------------------------------------------------------
@@ -133,7 +134,7 @@ avatar:
   # If true, the avatar will be dispalyed in circle.
   rounded: true
   # If true, the avatar will be rotated with the cursor.
-  rotated: true
+  rotated: false
 
 # Posts / Categories / Tags in sidebar.
 site_state: true
@@ -143,8 +144,9 @@ site_state: true
 # Key is the link label showing to end users.
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 social:
-  GitHub: https://github.com/yourname || fab fa-github
-  E-Mail: mailto:yourname@gmail.com || fa fa-envelope
+  GitHub: https://github.com/LiLittleCat || fab fa-github
+  E-Mail: mailto:lilittlecat@qq.com || fa fa-envelope
+  RSS: /atom.xml || fas fa-rss
   #Weibo: https://weibo.com/yourname || fab fa-weibo
   #Google: https://plus.google.com/yourname || fab fa-google
   #Twitter: https://twitter.com/yourname || fab fa-twitter
@@ -415,7 +417,7 @@ github_banner:
 # ---------------------------------------------------------------
 
 font:
-  enable: false
+  enable: true
 
   # Uri of fonts host, e.g. https://fonts.googleapis.com (Default).
   host:
@@ -428,8 +430,10 @@ font:
   # Global font settings used for all elements inside <body>.
   global:
     external: true
-    family: EB Garamond, Noto Serif SC
-    size:
+    # family: EB Garamond, STKaiti, KaiTi, SimKai, DFKai-SB, Noto Serif SC
+    # family: Ubuntu, Noto Sans SC, Overpass, "GlowSansSC"
+    family: 
+    size: 1
 
   # Font settings for site title (.site-title).
   title:
@@ -440,18 +444,18 @@ font:
   # Font settings for headlines (<h1> to <h6>).
   headings:
     external: true
-    family:
+    family: Ubuntu, Noto Sans SC
     size:
 
   # Font settings for posts (.post-body).
   posts:
     external: true
-    family:
+    family: Ubuntu, Noto Sans SC
 
   # Font settings for <code> and code blocks.
   codes:
     external: true
-    family: JetBrains Mono
+    family: JetBrains Mono, Noto Sans SC
 
 
 # ---------------------------------------------------------------

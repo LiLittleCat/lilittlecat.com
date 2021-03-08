@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'GlowSansSC';
+  font-weight: 400;
+  font-style: normal;
+  src: url("next/GlowSansSC-Normal-Book.otf") format('opentype');
+}
+@font-face {
+  font-family: 'GlowSansSC';
+  font-weight: bold;
+  font-style: normal;
+  src: url("next/GlowSansSC-Normal-Bold.otf") format('opentype');
+}

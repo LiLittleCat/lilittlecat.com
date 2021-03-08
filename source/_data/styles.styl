@@ -29,32 +29,32 @@
 }
 
 /* header-页面背景 */
-body {
-  background-image: url($body-bg-url);
-  background-repeat: repeat;
-  background-attachment: fixed;
+// body {
+//   background-image: url($body-bg-url);
+//   background-repeat: repeat;
+//   background-attachment: fixed;
 
-  @media (prefers-color-scheme: dark) {
-    background-image: none;
-  }
-}
+//   @media (prefers-color-scheme: dark) {
+//     background-image: none;
+//   }
+// }
 
 /* Day of Mourning */
-if (hexo-config('gray')) {
-  html {
-    -webkit-filter: grayscale(100%);
-    -moz-filter: grayscale(100%);
-    -ms-filter: grayscale(100%);
-    -o-filter: grayscale(100%);
-    filter: grayscale(100%);
-    filter: gray;
-  }
-  @media (prefers-color-scheme: light) {
-    body {
-      background-image: url($body-bg-gray-url);
-    }
-  }
-}
+// if (hexo-config('gray')) {
+//   html {
+//     -webkit-filter: grayscale(100%);
+//     -moz-filter: grayscale(100%);
+//     -ms-filter: grayscale(100%);
+//     -o-filter: grayscale(100%);
+//     filter: grayscale(100%);
+//     filter: gray;
+//   }
+//   @media (prefers-color-scheme: light) {
+//     body {
+//       background-image: url($body-bg-gray-url);
+//     }
+//   }
+// }
 
 /************************ Sidebar **************************/
 
@@ -66,22 +66,22 @@ if (hexo-config('gray')) {
 // }
 
 /* sidebar-标题 */
-.site-title {
-  font-weight: bold;
-}
+// .site-title {
+//   font-weight: bold;
+// }
 
 /* sidebar-副标题 */
-.site-subtitle {
-  font-weight: bold;
-  font-family: $font-family-quote;
-  color: var(--brand-color);
-  font-size: .9em;
-}
+// .site-subtitle {
+//   font-weight: bold;
+//   font-family: $font-family-quote;
+//   color: var(--brand-color);
+//   font-size: .9em;
+// }
 
 /* sidebar-站点描述介绍 */
-.site-description {
-  color: var(--blockquote-color);
-}
+// .site-description {
+//   color: var(--blockquote-color);
+// }
 
 /* sidebar-二级菜单圆角 */
 .sub-menu {
@@ -98,8 +98,10 @@ if (hexo-config('gray')) {
 
 /* post-首页文章标题 */
 .index .post-title {
+  // 标题靠左
   text-align: left;
-  border-left: $btn-default-bg 8px solid;
+  // 标题前面加个标志
+  border-left: var(--text-color) 8px solid;
   padding-left: 10px;
 }
 
@@ -158,17 +160,17 @@ p {
 }
 
 /* post-引用与 note 字体 */
-blockquote p,
-.post-body .note {
-  font-family: $font-family-quote;
-}
+// blockquote p,
+// .post-body .note {
+//   font-family: $font-family-quote;
+// }
 
 /* post-行内代码 */
-code {
-  font-size: .85em;
-  background: none;
-  color: var(--text-color);
-}
+// code {
+//   font-size: .85em;
+//   background: none;
+//   color: var(--text-color);
+// }
 
 /* post-思源宋体列表打叉修复 */
 li {
@@ -181,7 +183,7 @@ li {
 .back-to-top {
   // background: $btn-default-bg;
   opacity: .8;
-  font-weight: bold;
+  // font-weight: bold;
   font-size: 1em;
   border-radius: 1em;
 }
@@ -214,10 +216,10 @@ li {
 }
 
 /* 修改选中字符的颜色 */
-::selection {
-  background: rgba(0, 149, 255, 0.2);
-  color: var(--blockquote-color);
-}
+// ::selection {
+//   background: rgba(0, 149, 255, 0.2);
+//   color: var(--blockquote-color);
+// }
 
 /****************** Pagination & Footer ********************/
 
