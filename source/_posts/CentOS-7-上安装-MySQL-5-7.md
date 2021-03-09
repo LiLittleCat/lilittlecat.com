@@ -1,18 +1,20 @@
 ---
 title: CentOS 7 上安装 MySQL 5.7
-excerpt: 本文介绍了在 CentOS 7 上安装 MySQL 5.7 的过程，作为笔记方便以后查看。
+# excerpt: 本文介绍了在 CentOS 7 上安装 MySQL 5.7 的过程，作为笔记方便以后查看。
 tags:
   - MySQL
   - CentOS
 categories:
   - [技术, 环境搭建]
-index_img: 'images/mysql-logo.svg'
-banner_img: 'images/mysql-logo.svg'
 abbrlink: f35f8af2
 date: 2020-08-12 18:38:18
 ---
 
-
+<img src="https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed/images/blog/how-to-install-mysql-on-centos.png" height="200px"/>
+<!-- <img src="images/images.jfif"/> -->
+<!-- ![how-to-install-mysql-on-centos](https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed/images/blog/how-to-install-mysql-on-centos.png) -->
+本文介绍了在 CentOS 7 上安装 MySQL 5.7 的过程，作为笔记方便以后查看。
+<!-- more -->
 ## 开始安装
 
 卸载自带 mariadb 和已安装的 MySQL，如遇到依赖问题导致卸载出错则加上 `--nodeps` 参数：

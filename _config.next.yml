@@ -42,8 +42,8 @@ custom_file_path:
 scheme: Gemini
 
 # Dark Mode
-darkmode: false
-# darkmode: true
+# darkmode: false
+darkmode: true
 
 
 # ---------------------------------------------------------------
@@ -176,7 +176,7 @@ links:
 toc:
   enable: true
   # Automatically add list number to toc.
-  number: true
+  number: false
   # If true, all words will placed on next lines if header width longer then sidebar width.
   wrap: false
   # If true, all level of TOC in a post will be displayed, rather than the activated part of it.
@@ -258,7 +258,7 @@ post_meta:
 # Dependencies: https://github.com/next-theme/hexo-word-counter
 symbols_count_time:
   separated_meta: true
-  item_text_total: false
+  item_text_total: true
 
 # Use icon instead of the symbol # to indicate the tag at the bottom of the post
 tag_icon: true
@@ -432,7 +432,7 @@ font:
     external: true
     # family: EB Garamond, STKaiti, KaiTi, SimKai, DFKai-SB, Noto Serif SC
     # family: Ubuntu, Noto Sans SC, Overpass, "GlowSansSC"
-    family: 
+    family: Ubuntu, Noto Sans SC
     size: 1
 
   # Font settings for site title (.site-title).

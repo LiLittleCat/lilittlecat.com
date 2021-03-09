@@ -5,12 +5,13 @@ tags:
   - RPM
 categories:
   - [技术]
-index_img: 'https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed/images/blog/RPM_Logo.svg'
-banner_img: 'https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed/images/blog/RPM_Logo.svg'
 abbrlink: 22fd6dd2
 date: 2020-08-06 16:18:03
 ---
-
+<!-- ![](https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed/images/blog/RPM_Logo.svg!600x) -->
+<!-- <img src="https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed/images/blog/RPM_Logo.svg" style="zoom:50%" /> style="height:600px" -->
+<!-- <img src="https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed/images/blog/RPM_Logo.svg"  width="600px" />  -->
+<img src="https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed/images/blog/RPM_Logo.svg" height="200px"/>
 RPM Package Manager (RPM) 是一个强大的命令行驱动的软件包管理工具，用来安装、卸载、校验、查询和更新 Linux 系统上的软件包。本文简单介绍了一下 RPM，并总结制作了 RPM 包的流程。
 
 <!-- more -->

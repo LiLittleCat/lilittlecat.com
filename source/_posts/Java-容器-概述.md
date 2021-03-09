@@ -1,16 +1,17 @@
 ---
 title: Java 容器 - 概述
-excerpt: 本系列旨在归纳总结 Java 容器相关类的知识，并深入分析常用容器类的源代码。本文简单描述了 Java 容器相关概念。
+# excerpt: 本系列旨在归纳总结 Java 容器相关类的知识，并深入分析常用容器类的源代码。本文简单描述了 Java 容器相关概念。
 tags:
   - Java 集合
 categories:
   - [技术, Java]
-index_img: 'https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed/images/blog/logo-java-text-color.svg'
-banner_img: 'https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed/images/blog/logo-java-text-color.svg'
 abbrlink: 81a892b9
 date: 2020-08-17 23:36:04
 ---
+<img src="https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed/images/blog/logo-java-text-color.svg"  height="200px"/>
 
+本系列旨在归纳总结 Java 容器相关类的知识，并深入分析常用容器类的源代码。本文简单描述了 Java 容器相关概念。
+<!-- more -->
 ## 前言
 
 一个程序在运行过程中会根据某些条件创建多个对象，这些条件和创建对象的个数在运行之前都是未知的。为此，Java 提供了多种方式来保存对象（对象的引用）。比如数组，但是数组的大小在创建时就已固定，不适合复杂的持有对象的场景。除此之外，Java 类库中还提供了一套容器类来解决这个问题。
