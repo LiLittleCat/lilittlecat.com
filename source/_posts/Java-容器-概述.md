@@ -4,7 +4,7 @@ title: Java 容器 - 概述
 tags:
   - Java 集合
 categories:
-  - [技术, Java]
+  - [Tech]
 abbrlink: 81a892b9
 date: 2020-08-17 23:36:04
 ---

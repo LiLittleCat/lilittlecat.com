@@ -4,7 +4,7 @@ title: RPM 介绍及打包总结
 tags:
   - RPM
 categories:
-  - [技术]
+  - [Tech]
 abbrlink: 22fd6dd2
 date: 2020-08-06 16:18:03
 ---

@@ -5,7 +5,7 @@ tags:
   - MySQL
   - CentOS
 categories:
-  - [技术, 环境搭建]
+  - [Tech]
 abbrlink: f35f8af2
 date: 2020-08-12 18:38:18
 ---

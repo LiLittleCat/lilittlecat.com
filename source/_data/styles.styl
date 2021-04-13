@@ -260,57 +260,59 @@ li {
 /************************ Overview *************************/
 
 /* categories */
-// +mobile() {
-//   .category-all-page .category-list-item {
-//     margin: 10px 40px;
-//   }
++mobile() {
+  .category-all-page .category-list-item {
+    margin: 10px 40px;
+  }
 
-//   .category-all-page .category-all ul {
-//     list-style-type: disc;
-//   }
-// }
+  .category-all-page .category-all ul {
+    list-style-type: disc;
+  }
+}
 
-// +tablet-desktop() {
-//   .category-all-page .category-list-item {
-//     margin: 10px 12px;
-//   }
++tablet-desktop() {
+  .category-all-page .category-list-item {
+    margin: 10px 12px;
+  }
 
-//   ul.category-list {
-//     // text-align: center;
-//   }
+  ul.category-list {
+    text-align: center;
+  }
 
-//   li.category-list-item {
-//     display: inline-block;
-//   }
+  li.category-list-item {
+    display: inline-block;
+  }
 
-//   li.category-list-item a {
-//     line-height: 5;
-//     word-break: keep-all;
-//     padding: 2px 10px;
-//     // font-weight: bold;
-//     color: white;
-//     // background: $btn-default-bg;
-//     background: $whitesmoke;
-//     border-bottom: none;
-//     border-radius: 15px;
-//     btn-shadow();
+  li.category-list-item a {
+    // line-height: 5;
+    word-break: keep-all;
+    padding: 10px 15px;
+    margin: 8px;
+    color: #555
+    font-weight: bold;
+    // background: $btn-default-bg;
+    background: $whitesmoke;
+    border-bottom: none;
+    border-radius: 15px;
+    btn-shadow();
 
-//     &:hover {
-//       color: white !important;
-//       text-decoration: none;
-//     }
-//     @media (prefers-color-scheme: dark) {
-//     color: var(--text-color) !important;
-//     background: $btn-default-bg;
-//   }
-//   }
-// }
+    &:hover {
+      color: white !important;
+      text-decoration: none;
+    }
+  //   @media (prefers-color-scheme: dark) {
+  //   color: var(--text-color) !important;
+  //   background: $btn-default-bg;
+  // }
+  }
+}
 
 /* tags */
 .tag-cloud a, //标签云
 .posts-expand .post-tags a { //文章末标签
   padding: 2px 10px;
   margin: 8px;
+  color: #555
   background: $whitesmoke;
   border-bottom: none;
   border-radius: 15px;
@@ -326,6 +328,28 @@ li {
   //   background: $btn-default-bg;
   // }
 }
+
+// 滚动条导致页面跳动问题解决
+// body {
+//   width: 100vw;
+//   overflow-x: hidden;
+//   @supports (overflow-x: clip) {
+//     overflow-x: clip;
+//   }
+// }
+
+// 或者
+/* Hide scrollbar for Chrome, Safari and Opera */
+*::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+*{
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
 
 // /************************* Comment ************************/
 
