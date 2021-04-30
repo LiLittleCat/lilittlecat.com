@@ -42,8 +42,8 @@ custom_file_path:
 scheme: Gemini
 
 # Dark Mode
-# darkmode: false
-darkmode: true
+darkmode: false
+# darkmode: true
 
 
 # ---------------------------------------------------------------
