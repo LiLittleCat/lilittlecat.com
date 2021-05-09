@@ -14,7 +14,7 @@ timezone: Asia/Shanghai
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: http://lilittlecat.com
 root: /
 # 使用插件设置文章永久链接
 permalink: posts/:abbrlink/
@@ -132,5 +132,5 @@ deploy:
   type: git
   repository: 
     github: https://github.com/LiLittleCat/lilittlecat.github.io
-    coding: git@e.coding.net:lilittlecat/lilittlecat/blog.git
+    # coding: git@e.coding.net:lilittlecat/lilittlecat/blog.git
   branch: master

@@ -1,6 +1,6 @@
 # My blog's source code
 
-My Blog: https://lilittlecat.cn
+My Blog: https://lilittlecat.com
 
 
 # 使用
