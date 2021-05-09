@@ -26,15 +26,15 @@ MyBatis 是一款优秀的持久层框架，它支持自定义 SQL、存储过�
 
 如图所示：
 
-![image-20210429001446963](https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed/images/mybatis/image-20210429001446963.png)
+![Mybatis 执行过程](https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed/images/mybatis/image-20210429001446963.png)
 
 SqlSession 中提供了基本 API：增、删、改、查
 
-![image-20210428202606059](https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed/images/mybatis/image-20210428202606059.png)
+![SqlSession 的方法](https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed/images/mybatis/image-20210428202606059.png)
 
 其中 `select()` 方法有很多，他们的区别主要在参数和返回结果上。
 
-![image-20210428203039799](https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed/images/mybatis/image-20210428203039799.png)
+![SqlSession 的 Select() 方法](https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed/images/mybatis/image-20210428203039799.png)
 
 返回结果上，有 `void`，游标 `Cursor<T>`，`List<E>`，`Map<K, V>`，一条数据 `T`。参数上，`String` 就是 StatementId，Mybatis 中所有操作（增删改查）都有一个 Id，通过 Id 找到 SQL 映射，`Object` 就是 SQL 中的参数，`ResultHandler` 对结果集进行处理，`RowBound` 用于设置返回的范围，用于进行分页。多个 `select()` 方法重载的设计用意是为了方便调用，这种方便调用进行的重载就是`门面模式`。
 
@@ -70,7 +70,7 @@ public class DefaultSqlSession implements SqlSession {
 
 SqlSession 只提供 SQL 会话，具体执行交给 Executor。Executor 也提供了基本功能，其中包括改、查、缓存维护和事务管理。还提供了辅助 API，包括提交、关闭执行器和批处理刷新。
 
-![image-20210428212838383](https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed/images/mybatis/image-20210428212838383.png)
+![Executor 的方法](https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed/images/mybatis/image-20210428212838383.png)
 
 Executor 本身也不会去执行 SQL，执行 SQL 交给了 StatementHandler，StatementHandler 本质上使用了 JDBC 中的 Statement 进行参数处理、执行 SQL 和处理结果。
 
@@ -80,7 +80,7 @@ Executor 本身也不会去执行 SQL，执行 SQL 交给了 StatementHandler，
 
 Executor 的继承体系：
 
-![image-20210428213919624](https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed/images/mybatis/BaseExecutor.svg)
+![Executor 的继承体系](https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed/images/mybatis/BaseExecutor.svg)
 
 
 
@@ -932,4 +932,4 @@ MyBatis 的 Executor 方法执行栈：
 
 最终 Executor 的执行体系如下图：
 
-![image-20210429000500432](https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed/images/mybatis/image-20210429000500432.png)
+![Executor 的执行体系](https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed/images/mybatis/image-20210429000500432.png)
