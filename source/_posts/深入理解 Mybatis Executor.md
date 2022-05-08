@@ -3,7 +3,7 @@ title: 深入理解 Mybatis Executor
 tags:
   - Mybatis
 categories:
-  - - Tech
+  - Tech
 abbrlink: 1b8eb0fb
 date: 2021-04-29 00:26:56
 ---
@@ -36,7 +36,7 @@ SqlSession 中提供了基本 API：增、删、改、查
 
 ![SqlSession 的 Select() 方法](https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed/images/mybatis/image-20210428203039799.png)
 
-返回结果上，有 `void`，游标 `Cursor<T>`，`List<E>`，`Map<K, V>`，一条数据 `T`。参数上，`String` 就是 StatementId，Mybatis 中所有操作（增删改查）都有一个 Id，通过 Id 找到 SQL 映射，`Object` 就是 SQL 中的参数，`ResultHandler` 对结果集进行处理，`RowBound` 用于设置返回的范围，用于进行分页。多个 `select()` 方法重载的设计用意是为了方便调用，这种方便调用进行的重载就是`门面模式`。
+返回结果上，有 `void`，游标 `Cursor<T>`，`List<E>`，`Map<K, V>`，一条数据 `T`。参数上，`String` 就是 StatementId，Mybatis 中所有操作（增删改查）都有一个 Id，通过 Id 找到 SQL 映射，`Object` 就是 SQL 中的参数，`ResultHandler` 对结果集进行处理，`RowBound` 用于设置返回的范围，用于进行分页。多个 `select()` 方法重载的设计用意是为了方便调用，这种方便调用进行的重载就是「门面模式」。
 
 除了基本 API 之外，还有辅助 API，即提交和关闭会话。会话中可执行多个 SQL，一个会话只能被一个线程调用，线程使用完 SqlSession 后应该立马把它关闭掉，但一个线程可调用多个会话。因此，SqlSession 不能跨线程使用，也即它不是线程安全的。
 

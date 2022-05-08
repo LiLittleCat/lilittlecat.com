@@ -1,9 +1,9 @@
 ---
-title: Java 容器 - HashMap
+title: Java 集合 - HashMap
 tags:
-  - Java
+  - Java 集合
 categories:
-  - Tech
+  - [Tech]
 abbrlink: 2359ae94
 date: 2022-03-09 22:55:36
 ---
