@@ -261,8 +261,6 @@ public void test2() {
 
 ## 基本结构
 
-## 
-
 ![ReentrantLock](https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed@master/drawio/ReentrantLock.svg)
 
 - `AbstractQueuedSynchronizer` :AQS 同步器（抽象类）
