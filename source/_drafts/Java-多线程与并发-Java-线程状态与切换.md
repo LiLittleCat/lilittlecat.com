@@ -9,3 +9,13 @@ date: 2022-05-07 00:37:02
 https://blog.csdn.net/pange1991/article/details/53860651
 
 https://tech.meituan.com/2020/04/02/java-pooling-pratice-in-meituan.html
+
+
+{% plantuml %}
+@startuml
+class  A 
+interface B
+class A implements B
+@enduml
+{% endplantuml %}
+
