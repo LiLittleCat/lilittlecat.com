@@ -252,7 +252,10 @@ public void test2() {
 非公平锁结果如下，当线程 1 获得锁以后，其它线程将进入阻塞队列，而当线程 1 释放锁时线程 1 可以和其它线程真接竞争，因为其它线程还需要唤醒，所以线程 1 获得锁的顺在其他线程之前：
 
 > 线程 pool-1-thread-1 获得锁
+> 线程 pool-1-thread-1 获得锁
 > 线程 pool-1-thread-3 获得锁
+> 线程 pool-1-thread-3 获得锁
+> 线程 pool-1-thread-2 获得锁
 > 线程 pool-1-thread-2 获得锁
 
 # ReentrantLock 底层原理
