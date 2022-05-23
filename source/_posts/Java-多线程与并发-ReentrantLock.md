@@ -232,7 +232,7 @@ public void test2() {
         executorService.submit(() -> {
             for (int k = 0; k < 2; k++) {
                 lock.lock();
-                System.out.printf("线程%s 获得锁、n", Thread.currentThread().getName());
+                System.out.printf("线程%s 获得锁\n", Thread.currentThread().getName());
                 lock.unlock();
             }
         });
