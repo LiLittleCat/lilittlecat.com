@@ -444,7 +444,8 @@ font:
     external: true
     # family: EB Garamond, STKaiti, KaiTi, SimKai, DFKai-SB, Noto Serif SC
     # family: Ubuntu, Noto Sans SC, Overpass, "GlowSansSC"
-    family: Merriweather, Noto Serif SC, Ubuntu, Noto Sans SC
+    # family: Merriweather, Noto Serif SC, Ubuntu, Noto Sans SC
+    family: Noto Serif SC, Ubuntu, Noto Sans SC
     size: 1
 
   # Font settings for site title (.site-title).
@@ -456,13 +457,15 @@ font:
   # Font settings for headlines (<h1> to <h6>).
   headings:
     external: true
-    family: Merriweather, Noto Serif SC, Ubuntu, Noto Sans SC
+    # family: Merriweather, Noto Serif SC, Ubuntu, Noto Sans SC
+    family: Noto Serif SC, Ubuntu, Noto Sans SC
     size:
 
   # Font settings for posts (.post-body).
   posts:
     external: true
-    family: Merriweather, Noto Serif SC, Ubuntu, Noto Sans SC
+    # family: Merriweather, Noto Serif SC, Ubuntu, Noto Sans SC
+    family: Noto Serif SC, Ubuntu, Noto Sans SC
 
   # Font settings for <code> and code blocks.
   codes:
