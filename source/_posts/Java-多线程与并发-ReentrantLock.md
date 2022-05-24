@@ -31,7 +31,20 @@ date: 2022-05-22 16:11:18
 
 ## Lock 组成结构
 
-![Lock and Condition](https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed/drawio/Lock-and-Condition.svg)
+<center>
+    <img style="border-radius: 8px;
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, .4);"
+    src="https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed/drawio/Lock-and-Condition.svg" width = "80%" alt=""/>
+    <div style="
+  color: #999;
+  font-size: 0.875em;
+  font-weight: bold;
+  line-height: 1;
+  margin: 0 auto 15px;
+  text-align: center;">
+      Lock and Condition
+    </div>
+</center>
 
 ### Lock 锁
 
@@ -45,11 +58,37 @@ JUC 中的锁由 `Lock` 和 `Condition` 组成，`Lock` 负责加锁和释放锁
 
 假设有一个产品容器，5 个生产者线程负责生产产品到容器中，5 个消费者线程负责从容器中取走产品。生产者线程运行的的条件是 **容器未满**，消费者运行的条件是 **容器非空**，否则阻塞等待。
 
-![Condition sample 1](https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed/drawio/Condition-sample.svg)
+<center>
+    <img style="border-radius: 8px;
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, .4);"
+    src="https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed/drawio/Condition-sample.svg" width = "80%" alt=""/>
+    <div style="
+  color: #999;
+  font-size: 0.875em;
+  font-weight: bold;
+  line-height: 1;
+  margin: 0 auto 15px;
+  text-align: center;">
+      Condition sample 1
+    </div>
+</center>
 
 如果使用 `synchronized` 实现，当某一个线程获取锁之后，如果其他线程不满足运行条件，调用 `Object.wait()` 进入等待集，线程释放锁之后使用 `Object.notify()` 唤醒等待集中的线程。此时无法确定唤醒的是生产者线程还是消费者线程，因为他们都会放入同一个等待集中，`Object.notify()` 之后和等待获取锁的阻塞线程一起竞争锁。如果等待集中的线程获得了锁，还要继续检测是否满足其运行条件，不满足继续 wait。
 
-![Condition sample 2](https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed@master/drawio/Condition-sample-1.svg)
+<center>
+    <img style="border-radius: 8px;
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, .4);"
+    src="https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed/drawio/Condition-sample-1.svg" width = "80%" alt=""/>
+    <div style="
+  color: #999;
+  font-size: 0.875em;
+  font-weight: bold;
+  line-height: 1;
+  margin: 0 auto 15px;
+  text-align: center;">
+      Condition sample 2
+    </div>
+</center>
 
 上述可知，在这种场景下 `synchronized` 存在局限性。
 
@@ -264,7 +303,20 @@ public void test2() {
 
 ## 基本结构
 
-![ReentrantLock](https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed@master/drawio/ReentrantLock.svg)
+<center>
+    <img style="border-radius: 8px;
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, .4);"
+    src="https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed@master/drawio/ReentrantLock.svg" width = "80%" alt=""/>
+    <div style="
+  color: #999;
+  font-size: 0.875em;
+  font-weight: bold;
+  line-height: 1;
+  margin: 0 auto 15px;
+  text-align: center;">
+      ReentrantLock
+    </div>
+</center>
 
 - `AbstractQueuedSynchronizer` :AQS 同步器（抽象类）
 - `Sync`：`ReentrantLock` 中的内部抽象类，用于实现基础同步，继承自 AQS
@@ -335,7 +387,20 @@ final boolean nonfairTryAcquire(int acquires) {
 
 总结
 
-![非公平锁加锁流程](https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed@master/drawio/nonfairTryAcquire.svg)
+<center>
+    <img style="border-radius: 8px;
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, .4);"
+    src="https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed@master/drawio/nonfairTryAcquire.svg" width = "80%" alt=""/>
+    <div style="
+  color: #999;
+  font-size: 0.875em;
+  font-weight: bold;
+  line-height: 1;
+  margin: 0 auto 15px;
+  text-align: center;">
+      非公平锁加锁流程
+    </div>
+</center>
 
 ### 公平锁
 
@@ -389,7 +454,20 @@ static final class FairSync extends Sync {
 
 总结
 
-![公平锁加锁流程](https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed@master/drawio/fairTryAcquire.svg)
+<center>
+    <img style="border-radius: 8px;
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, .4);"
+    src="https://cdn.jsdelivr.net/gh/LiLittleCat/PicBed@master/drawio/fairTryAcquire.svg" width = "80%" alt=""/>
+    <div style="
+  color: #999;
+  font-size: 0.875em;
+  font-weight: bold;
+  line-height: 1;
+  margin: 0 auto 15px;
+  text-align: center;">
+      公平锁加锁流程
+    </div>
+</center>
 
 ## 释放锁
 
