@@ -1,0 +1,19 @@
+@startuml System Thread State
+
+hide empty description
+
+
+
+
+state SystemThreadState  {
+    [*] -up-> new
+    new -> ready : admitted
+    ready -> running : sheduler dispatch
+    running -> ready : interrupt
+    running -> terminated : exit
+    running -> waiting : I/O or event wait
+    waiting --> ready : I/O or event completion
+    terminated -down-> [*]
+}
+
+@enduml

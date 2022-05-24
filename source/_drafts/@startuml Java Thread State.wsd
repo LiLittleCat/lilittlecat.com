@@ -1,0 +1,39 @@
+@startuml Java Thread State
+
+hide empty description
+
+
+state JavaThreadState  {
+
+
+
+    [*] -up-> NEW
+    NEW -> RUNNABLE : Thread.start()
+
+    state RUNNABLE {
+        [*] -> Ready
+        Ready -> Running : thread was selected by thread scheduler to run
+        Running -> Ready : Thread.yield()
+        Running -> Ready : thread was suspended by thread scheduler
+        Running -> [*]
+    }
+     RUNNABLE --> TERMINATED : thread terminated
+
+     TERMINATED -> [*]
+
+     RUNNABLE -> TIMED_WAITING : Thread.sleep(sleepTime)
+     RUNNABLE -> TIMED_WAITING : Object.wait(timeout)
+     RUNNABLE -> TIMED_WAITING : Thread.join(timeout)
+     RUNNABLE -> TIMED_WAITING : LockSupport.parkNanos()
+     RUNNABLE -> TIMED_WAITING : LockSupport.parkUntil()
+     RUNNABLE <- TIMED_WAITING : sleep time elapsed
+     TIMED_WAITING -> TERMINATED : thread terminated
+
+
+
+
+}
+
+
+
+@enduml
