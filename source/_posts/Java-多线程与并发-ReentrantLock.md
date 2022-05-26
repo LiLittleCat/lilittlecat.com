@@ -8,7 +8,7 @@ abbrlink: 28a0bbad
 date: 2022-05-22 16:11:18
 ---
 
-前文 [Java 多线程与并发 - synchronized](https://lilittlecat.com/posts/74beb013/) 中介绍了关键字 `synchronized` 来实现同步访问，在 Java 5 之后，java.util.concurrent.locks 包下提供了另外一种方式来实现同步访问，那就是 `Lock`。
+前文 {% post_link Java-多线程与并发-synchronized Java 多线程与并发 - synchronized %} 中介绍了关键字 `synchronized` 来实现同步访问，在 Java 5 之后，java.util.concurrent.locks 包下提供了另外一种方式来实现同步访问，那就是 `Lock`。
 
 本文通过 `Lock` 的常用实现类 `ReentrantLock`，介绍了 `Lock` 的核心概念、`ReentrantLock` 的核心机制以及其公平锁和非公平锁实现的原理。
 
