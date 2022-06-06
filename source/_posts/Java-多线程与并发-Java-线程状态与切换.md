@@ -106,7 +106,7 @@ public enum State {
 | WAITING      | BLOCKED，WAITING，TIMED_WAITING |
 | TERMINATED   | TERMINATED                      |
 
-从实际意义上来讲，操作系统中的线程除去 NEW 和 terminated 状态（并不存在于线程运行中），一个线程真实存在的状态，只有：
+从实际意义上来讲，操作系统中的线程除去 NEW 和 TERMINATED 状态（并不存在于线程运行中），一个线程真实存在的状态，只有：
 
 - READY：表示线程已经被创建，正在等待系统调度分配 CPU 使用权
 - RUNNING：表示线程获得了 CPU 使用权，正在进行运算
