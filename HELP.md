@@ -88,7 +88,7 @@ Git 官网：https://git-scm.com/
 
 - 在 GitHub 中添加公钥
 
-  登录GitHub，添加公钥位置：Settings > SSH and GPG keys，点击 New SSH key，将上述 `id_rsa.pub` 中的内容复制到 Key 一栏中，Title 随便写。
+  登录 GitHub，添加公钥位置：Settings > SSH and GPG keys，点击 New SSH key，将上述 `id_rsa.pub` 中的内容复制到 Key 一栏中，Title 随便写。
 
 - 测试公钥是否添加成功
 
@@ -273,4 +273,3 @@ hexo g # 本地生成静态网页
 hexo s # 本地部署静态网页，访问地址 http://localhost:4000
 hexo d # 部署静态网页到远程服务器
 ```
-
