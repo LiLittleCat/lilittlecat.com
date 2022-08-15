@@ -7,14 +7,13 @@ categories:
 date: 2020-07-23 19:04:20
 ---
 
-本文总结了Python基础和使用Python编写脚本所涉及的知识。
+本文总结了 Python 基础和使用 Python 编写脚本所涉及的知识。
 
 <!-- more -->
-@[toc]
 
-由于`shell`脚本的书写和阅读都比较困难，并且`CentOS7`自带`python2.7`，拟改用`python`编写部署脚本，记录下学习内容，知识点大体覆盖脚本编写。
+由于 `shell` 脚本的书写和阅读都比较困难，并且 `CentOS7` 自带 `python2.7`，拟改用 `python` 编写部署脚本，记录下学习内容，知识点大体覆盖脚本编写。
 
-### 一、python基础
+### 一、python 基础
 
 #### 1.1 变量
 
@@ -22,17 +21,17 @@ date: 2020-07-23 19:04:20
 
 常用计算：加（`+`）、减（`-`）、乘（`*`）、除（`/`）、乘方（`**`）
 
-字符串：`a = 'hello'`或`a = "hello"`
+字符串：`a = 'hello'` 或 `a = "hello"`
 
-查看变量a的类型：`type(a)`
+查看变量 a 的类型：`type(a)`
 
-变量a转字符类型：`str(a)`
+变量 a 转字符类型：`str(a)`
 
-变量a转整数类型：`int(a)`
+变量 a 转整数类型：`int(a)`
 
-注释：`#注释一行`，`'''注释多行'''`
+注释：`# 注释一行 `，`''' 注释多行 '''`
 
-#### 1.2 if语句
+#### 1.2 if 语句
 
 格式：
 
@@ -63,7 +62,7 @@ if 'or' in a:
     print 'yes'
 ```
 
-#### 1.3 while语句
+#### 1.3 while 语句
 
 格式：
 
@@ -84,18 +83,18 @@ while True:
         continue
 ```
 
-#### 1.4 for语句与range函数
+#### 1.4 for 语句与 range 函数
 
-`for`语句格式：
+`for` 语句格式：
 
 ```python
 for 变量 in 序列:
     语句
 ```
 
-`range`函数：生成整数列表
+`range` 函数：生成整数列表
 
-格式：`range(start, stop[, step])`，`start`默认是0，`step`默认是1，`stop`必须有，范围左闭右开，即`[start, stop)`
+格式：`range(start, stop[, step])`，`start` 默认是 0，`step` 默认是 1，`stop` 必须有，范围左闭右开，即 `[start, stop)`
 
 举例：
 
@@ -112,7 +111,7 @@ for i in c:
 
 |            | python2                                                      | python3                                |
 | ---------- | ------------------------------------------------------------ | -------------------------------------- |
-| 输入       | `a = raw_input()` 输入内容会被转换成字符串，建议使用<br />`a = input()` 输入什么类型就是什么类型 | `a = input()` 输入内容会被转换成字符串 |
+| 输入       | `a = raw_input()` 输入内容会被转换成字符串，建议使用 <br />`a = input()` 输入什么类型就是什么类型 | `a = input()` 输入内容会被转换成字符串 |
 | 输出       | `print a`                                                    | `print(a)`                             |
 | 不换行输出 | `print a,`                                                   | `print(a, end='')`                     |
 
@@ -120,11 +119,11 @@ for i in c:
 
 定义列表: `a = [1, 2, 'hello', 3]`
 
-随机访问: `a[下标]`，如`a[0] `，`a[-1]`表示最后一位元素
+随机访问: `a[下标]`，如 `a[0] `，`a[-1]` 表示最后一位元素
 
-获取a列表第0、1个元素：`c = a[0:2]`
+获取 a 列表第 0、1 个元素：`c = a[0:2]`
 
-翻转a列表：`d = a[::-1]`
+翻转 a 列表：`d = a[::-1]`
 
 复制列表：`b = a[:]`
 
@@ -144,7 +143,7 @@ for element in a:
 ```python
 a.append(element) # 尾部添加
 
-a.insert(index, element) # 位置index+1添加元素
+a.insert(index, element) # 位置 index+1 添加元素
 ```
 
 删除元素:
@@ -159,16 +158,16 @@ a.remove(value) # 删除第一个指定的值
 
 一些补充：
 
-- `len(a)`获取列表元素个数
-- `a.sort()`对列表永久排序
-- `sorted(a)`对列表临时排序
-- `a.reverse()`对列表元素进行翻转
+- `len(a)` 获取列表元素个数
+- `a.sort()` 对列表永久排序
+- `sorted(a)` 对列表临时排序
+- `a.reverse()` 对列表元素进行翻转
 
 #### 1.7 元组
 
 可以看作列表常量：`a = (1, 2, 'hello', 3)`
 
-如果只有一个元素： `b = (1,)` 用逗号结束，为了避免歧义：`(1)`表示小括号中1
+如果只有一个元素： `b = (1,)` 用逗号结束，为了避免歧义：`(1)` 表示小括号中 1
 
 遍历元组：
 
@@ -177,7 +176,7 @@ for element in a:
     print element
 ```
 
-元组的元素不可更改：`a[0] = 0`会异常
+元组的元素不可更改：`a[0] = 0` 会异常
 
 如果元组里面的元素是列表，那么列表里的元素可以修改
 
@@ -198,18 +197,18 @@ a['name'] = 'wanghe'
 a['age'] = 22 
 ```
 
-修改元素: `a[ 'age'] = 18`
+修改元素: `a['age'] = 18`
 
 删除某个键值对: `del a['age']`
 
 遍历字典:
 
 ```python
-for key, value in a.iterms(): # 遍历key, value
+for key, value in a.iterms(): # 遍历 key, value
     print key, value
-for key in a.keys(): # 遍历所有key
+for key in a.keys(): # 遍历所有 key
     print key
-for value in a.values(): # 遍历所有value
+for value in a.values(): # 遍历所有 value
     print value
 ```
 
@@ -239,8 +238,8 @@ file = open(file_name [, access_mode][, buffering])
 file.close()
 '''
 file_name：文件名称字符串
-access_mode：打开文件的模式，默认只读(r)。
-buffering:取值0，没有寄存。取值1，访问文件时会寄存行。取值大于1，表示寄存区的缓冲大小。取值为负，寄存区的缓冲大小为系统默认。
+access_mode：打开文件的模式，默认只读 (r)。
+buffering: 取值 0，没有寄存。取值 1，访问文件时会寄存行。取值大于 1，表示寄存区的缓冲大小。取值为负，寄存区的缓冲大小为系统默认。
 '''
 ```
 
@@ -281,7 +280,7 @@ file.writelines(字符串或者列表) # 按行写入
 #### 1.11 类
 
 ```python
-class person():		# person是类名
+class person():		# person 是类名
     def __init__(self, name, age):
         self.name = name
         self.age = age
@@ -289,7 +288,7 @@ class person():		# person是类名
         print self.name
     def print_age(self):
         print self.age
-    if __name__ == '__main__':	# 执行当前py代码会从这里调用
+    if __name__ == '__main__':	# 执行当前 py 代码会从这里调用
         p = person('someone', 18)	# 创建类对象
         p.print_name()
 
@@ -317,9 +316,9 @@ except BaseException as e:
     print type(e)   
 ```
 
-### 二、python脚本
+### 二、python 脚本
 
-#### 2.1 python脚本执行shell命令
+#### 2.1 python 脚本执行 shell 命令
 
 - 无返回值
 
@@ -339,13 +338,13 @@ except BaseException as e:
       out, err = res.communicate()
       ret = res.wait()
       return (ret, out, err)
-  # ret是命令执行返回码0是成功1是失败
-  # out是命令执行结果 err是错误信息
+  # ret 是命令执行返回码 0 是成功 1 是失败
+  # out 是命令执行结果 err 是错误信息
   
-  ret, out, err = run_cmd('ls /root') # 调用shell执行
+  ret, out, err = run_cmd('ls /root') # 调用 shell 执行
   ```
 
-#### 2.2 python读取json文件
+#### 2.2 python 读取 json 文件
 
 ```python
 # unicode 转 utf-8
@@ -360,7 +359,7 @@ def unicode_convert(input):
         return input.encode('utf-8')
 	else:
         return input
-# 读取json文件							
+# 读取 json 文件							
 with open('test.json', 'r') as file:
     a = json.load(file)
     print a
@@ -368,36 +367,36 @@ with open('test.json', 'r') as file:
     print a
     
 # 一些用法
-json.load(文件对象) # 读取json文件变成字典
-json.dump(文件对象)	# 写入json文件
-json.loads(str)	# json格式字符串转字典
-json.dumps(dict) # 字典转json格式字符串
+json.load(文件对象) # 读取 json 文件变成字典
+json.dump(文件对象)	# 写入 json 文件
+json.loads(str)	# json 格式字符串转字典
+json.dumps(dict) # 字典转 json 格式字符串
 ```
 
-#### 2.3 python访问pg数据库
+#### 2.3 python 访问 pg 数据库
 
-`python2`需要安装`pip2`和`psycopg2`
+`python2` 需要安装 `pip2` 和 `psycopg2`
 
 下载地址：[https://pypi.org/project/psycopg2-binary/](https://pypi.org/project/psycopg2-binary/)
 
 ```python
 import psycopg2
 
-conn = psycopg2.connect(user='用户名', password='密码', host=主机, port=端口, database='数据库名')
+conn = psycopg2.connect(user='用户名', password='密码', host= 主机, port= 端口, database='数据库名')
 cursor = conn.cursor()
-sql = 'sql语句'
+sql = 'sql 语句'
 cursor.execute(sql)
-entries = cursor.fetchall()[0][0] # 获取sql返回结果
+entries = cursor.fetchall()[0][0] # 获取 sql 返回结果
 cursor.close()
 conn.close()
 ```
 
-#### 2.4 python写日志文件
+#### 2.4 python 写日志文件
 
 ```python
 import logging
 
-logger = logging.getLogger(__name__) # 初始化logger时指定logger名字
+logger = logging.getLogger(__name__) # 初始化 logger 时指定 logger 名字
 
 def initialization_log():
     logger.setLevel(level=logging.INFO) # 设置异常等级
@@ -437,18 +436,18 @@ logger.warning('内容')
 |   %(levelno)s   |             打印日志级别的数值              |
 |  %(levelname)s  |             打印日志级别的名称              |
 |  %(filename)s   |             打印当前执行程序名              |
-|  %(pathname)s   | 打印当前执行程序的路径，其实就是sys.argv[0] |
+|  %(pathname)s   | 打印当前执行程序的路径，其实就是 sys.argv[0] |
 |  %(funcName)s   |             打印日志的当前函数              |
 |   %(lineno)d    |             打印日志的当前行号              |
 |   %(asctime)s   |               打印日志的时间                |
-|   %(thread)d    |                 打印线程ID                  |
+|   %(thread)d    |                 打印线程 ID                  |
 | %(threadName)s  |                打印线程名称                 |
-|   %(process)d   |                 打印进程ID                  |
+|   %(process)d   |                 打印进程 ID                  |
 | %(processName)s |                打印进程名称                 |
 |    %(module)    |                打印模块名称                 |
 |   %(message)s   |                打印日志信息                 |
 
-### 三、python进阶
+### 三、python 进阶
 
 #### 3.1 生成器
 
@@ -459,11 +458,11 @@ logger.warning('内容')
  a = range(6)
  print a 
 
- # 生成x*x列表
+ # 生成 x*x 列表
  a = [x * x for x in range(6)]
  print a
 
- # 引入if语句的列表生成式
+ # 引入 if 语句的列表生成式
  a = [x * x for x in range(6) if x%2 == 0]
  print a 
 
@@ -476,14 +475,14 @@ logger.warning('内容')
 
 ```python
 a = (x * x for x in range(6))
-# 访问方式：a.next()  	直到抛出StopIteration
+# 访问方式：a.next()  	直到抛出 StopIteration
 for i in a:
     print i
 ```
 
-引入`yield`关键字
+引入 `yield` 关键字
 
-`yield`的作用等价于`return`，但是再次调用函数的时候会从`yield`语句的下一句开始执行
+`yield` 的作用等价于 `return`，但是再次调用函数的时候会从 `yield` 语句的下一句开始执行
 
 ```python
 def square(n):
@@ -505,12 +504,12 @@ for i in square(5):
 
 1. 函数必须有输入和输出
 2. 输入不变，输出一定不变
-3. 变量不可变，`x = 1`就不能修改`x`的值
+3. 变量不可变，`x = 1` 就不能修改 `x` 的值
 4. 高阶函数
 
 高阶函数: 允许把函数本身作为参数传入另一个函数，还允许返回一个函数
 
-命令式（c语言）
+命令式（c 语言）
 
 ```c
 int add_abs(int a, int b) {
@@ -521,7 +520,7 @@ int add_abs(int a, int b) {
 }
 ```
 
-函数式（c语言）
+函数式（c 语言）
 
 ```c
 int add_abs(int a, int b) {
@@ -529,7 +528,7 @@ int add_abs(int a, int b) {
 }
 ```
 
-`python`中的高阶函数：
+`python` 中的高阶函数：
 
 - `map`: 对序列中每个元素调用函数并返回成一个新的列表
 
@@ -541,7 +540,7 @@ int add_abs(int a, int b) {
 
   注: 该函数必须两个参数
 
-- `filter`:  对序列中每一个元素调用函数，返回值是false则丢弃
+- `filter`:  对序列中每一个元素调用函数，返回值是 false 则丢弃
 
   格式: `filter(函数，序列)`
 
@@ -549,13 +548,13 @@ int add_abs(int a, int b) {
 
   格式: `sorted(序列，比较函数)`
 
-  关于比较函数通常认为两个元素`x` , `y`
+  关于比较函数通常认为两个元素 `x` , `y`
 
-  `x < y`返回`-1`
+  `x < y` 返回 `-1`
 
-  `x == y`返回`0`
+  `x == y` 返回 `0`
 
-  `x > y` 返回`1`
+  `x > y` 返回 `1`
 
 #### 3.3 匿名函数
 
@@ -572,21 +571,21 @@ lambda x: x*x
 
 匿名函数通常用作参数传给高阶函数
 
-表达式只能用纯表达式，不能赋值或使用`while`、`try`等语句
+表达式只能用纯表达式，不能赋值或使用 `while`、`try` 等语句
 
 ```python
 a = ['hello', 'name', 'test']
 
 sorted(a, key = lambda word: word[::-1])
 
-# 结果为['name', 'hello', 'test'] 
+# 结果为 ['name', 'hello', 'test'] 
 
 # 根据反转排序但不会反转单词
 ```
 
 #### 3.4 装饰器
 
-假设函数func返回的结果并不是需要的，但是又不想改变func的源码，该如何做？
+假设函数 func 返回的结果并不是需要的，但是又不想改变 func 的源码，该如何做？
 
 ```python
 def dec_f(func): # 把函数作为参数传进来
@@ -597,11 +596,11 @@ def dec_f(func): # 把函数作为参数传进来
 
 @dec_f # @dec_f 等价于 f1 = dec_f(f1)
 def f1():
-    print 'f1被调用'
+    print 'f1 被调用'
 
 @dec_f
 def f2():
-    print 'f2被调用'
+    print 'f2 被调用'
 
 f1()
 f2()
@@ -609,10 +608,9 @@ print f1
 print f2
 '''
 结果：
-f1被调用
+f1 被调用
 函数调用结束
-f2被调用
+f2 被调用
 函数调用结束
 '''
 ```
-
