@@ -4,14 +4,16 @@ tags:
   - Python
 categories:
   - [Tech]
+abbrlink: 1e361f78
 date: 2020-07-23 19:04:20
 ---
+
 
 本文总结了 Python 基础和使用 Python 编写脚本所涉及的知识。
 
 <!-- more -->
 
-由于 `shell` 脚本的书写和阅读都比较困难，并且 `CentOS7` 自带 `python2.7`，拟改用 `python` 编写部署脚本，记录下学习内容，知识点大体覆盖脚本编写。
+由于 `shell` 脚本的书写和阅读都比较困难，并且 `CentOS 7` 自带 `python2.7`，拟改用 `python` 编写部署脚本，记录下学习内容，知识点大体覆盖脚本编写。
 
 ### 一、python 基础
 
