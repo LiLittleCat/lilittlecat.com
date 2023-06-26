@@ -160,7 +160,7 @@ site_state: true
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 social:
   GitHub: https://github.com/LiLittleCat || fab fa-github
-  E-Mail: mailto:lilittlecat@qq.com || fa fa-envelope
+  E-Mail: mailto:lilittlecat@outlook.com || fa fa-envelope
   RSS: /atom.xml || fas fa-rss
   #Weibo: https://weibo.com/yourname || fab fa-weibo
   #Google: https://plus.google.com/yourname || fab fa-google
@@ -910,3 +910,25 @@ vendors:
 css: css
 js: js
 images: images
+
+# giscus
+giscus:
+  enable: true
+  repo: LiLittleCat/lilittlecat.com # Github repository name
+  repo_id: MDEwOlJlcG9zaXRvcnkyODU5ODg3Mzg= # Github repository id
+  category: General # Github discussion category
+  category_id: DIC_kwDOEQvXgs4CXeMM # Github discussion category id
+  # Available values: pathname | url | title | og:title
+  mapping: title
+  # Available values: 0 | 1
+  reactions_enabled: 1
+  # Available values: 0 | 1
+  emit_metadata: 1
+  # Available values: light | dark | dark_high_contrast | transparent_dark | preferred-color-scheme
+  theme: preferred-color-scheme
+  # Available values: en | zh-CN
+  lang: zh-CN
+  # Place the comment box above the comments
+  input_position: bottom
+  # Load the comments lazily
+  loading: lazy

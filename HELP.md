@@ -273,3 +273,9 @@ hexo g # 本地生成静态网页
 hexo s # 本地部署静态网页，访问地址 http://localhost:4000
 hexo d # 部署静态网页到远程服务器
 ```
+
+安装 next 主题
+
+```sh
+git clone https://github.com/next-theme/hexo-theme-next themes/next
+```
